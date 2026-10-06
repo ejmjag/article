@@ -1104,7 +1104,7 @@ body.draw-mode .toolbar,body.draw-mode .note-sheet{cursor:default}
   </div>
 </div>
 
-<canvas id="studyCanvas"></canvas>
+<svg id="studyCanvas" xmlns="http://www.w3.org/2000/svg"></svg>
 
 <div id="studyTools" aria-label="Study tools">
   <button type="button" data-action="notes">Notes</button>
@@ -1118,48 +1118,40 @@ body.draw-mode .toolbar,body.draw-mode .note-sheet{cursor:default}
 
 <style id="study-tools-css">
 #studyTools{
-  position:fixed;z-index:2147483646;left:50%;bottom:18px;transform:translateX(-50%);
-  display:flex;gap:6px;align-items:center;padding:7px;
-  background:#102b4c;border:1px solid rgba(255,255,255,.16);
-  border-radius:10px;box-shadow:0 14px 38px rgba(0,0,0,.22);
-  font-family:Arial,sans-serif
+  position:fixed!important;z-index:2147483646!important;right:18px!important;bottom:18px!important;
+  left:auto!important;transform:none!important;display:flex!important;flex-direction:column!important;
+  gap:6px!important;padding:7px!important;background:#102b4c!important;border-radius:12px!important;
+  box-shadow:0 14px 38px rgba(0,0,0,.22)!important;font-family:Arial,sans-serif!important
 }
 #studyTools button{
-  appearance:none;border:0;border-radius:6px;background:#fff;color:#102b4c;
-  padding:10px 12px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap
+  width:112px;appearance:none;-webkit-appearance:none;border:0;border-radius:7px;background:#fff;color:#102b4c;
+  padding:10px 11px;font-size:12px;font-weight:800;cursor:pointer;text-align:left
 }
-#studyTools button:hover{background:#eef3f8}
-#studyTools button.active{background:#d1ad65;color:#102b4c}
-#studyTools .doneBtn{display:none;background:#d1ad65}
-body.study-drawing #studyTools .doneBtn{display:block}
+#studyTools button.active{background:#d1ad65!important;color:#102b4c!important}
+#studyTools [data-action="done"]{display:none!important}
 #studyCanvas{
-  position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
-  z-index:2147483000!important;pointer-events:none!important;touch-action:none!important
+  position:absolute!important;left:0!important;top:0!important;width:100%!important;height:100%!important;
+  z-index:2147483000!important;pointer-events:none!important;overflow:visible!important
 }
 body.study-drawing #studyCanvas{pointer-events:auto!important;cursor:crosshair}
 #studyNotes{
-  position:fixed;z-index:2147483647;right:22px;bottom:82px;width:min(390px,calc(100vw - 28px));
-  background:#fff;border:1px solid #dbe2ea;border-radius:12px;
-  box-shadow:0 22px 60px rgba(0,0,0,.25);overflow:hidden;
-  opacity:0;visibility:hidden;transform:translateY(10px);
-  transition:.18s ease;font-family:Arial,sans-serif
+  position:fixed!important;z-index:2147483647!important;right:145px!important;bottom:18px!important;
+  width:min(390px,calc(100vw - 175px));background:#fff;border:1px solid #dbe2ea;border-radius:12px;
+  box-shadow:0 22px 60px rgba(0,0,0,.25);overflow:hidden;opacity:0;visibility:hidden;
+  transform:translateY(8px);transition:.18s ease;font-family:Arial,sans-serif
 }
 #studyNotes.open{opacity:1;visibility:visible;transform:none}
 .sn-head{display:flex;justify-content:space-between;align-items:center;padding:16px 17px;background:#102b4c;color:#fff}
 .sn-head small{display:block;font-size:9px;letter-spacing:.16em;color:#d7c18f;margin-bottom:2px}
 .sn-head strong{font-family:Georgia,serif;font-size:22px}
 .sn-head button{border:0;background:transparent;color:#fff;font-size:28px;cursor:pointer;line-height:1}
-#studyNoteText{
-  box-sizing:border-box;width:100%;height:250px;resize:vertical;border:0;outline:0;
-  padding:18px;font:16px/1.6 Georgia,serif;color:#182b44;background:#fffdf8
-}
+#studyNoteText{box-sizing:border-box;width:100%;height:250px;resize:vertical;border:0;outline:0;padding:18px;font:16px/1.6 Georgia,serif;color:#182b44;background:#fffdf8}
 .sn-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;border-top:1px solid #e3e7ec}
-.sn-foot span{font-size:11px;color:#778394}
-.sn-foot button{border:0;background:#eef2f6;color:#243b57;padding:8px 10px;border-radius:5px;font-weight:700;cursor:pointer}
-@media(max-width:720px){
- #studyTools{left:8px;right:8px;bottom:8px;transform:none;overflow-x:auto;justify-content:flex-start}
- #studyTools button{padding:9px 10px;font-size:12px}
- #studyNotes{right:14px;bottom:72px}
+.sn-foot span{font-size:11px;color:#778394}.sn-foot button{border:0;background:#eef2f6;color:#243b57;padding:8px 10px;border-radius:5px;font-weight:700}
+@media(max-width:700px){
+ #studyTools{right:8px!important;bottom:8px!important}
+ #studyTools button{width:96px;padding:9px 8px;font-size:11px}
+ #studyNotes{right:112px!important;bottom:8px!important;width:calc(100vw - 128px)}
 }
 </style>
 
@@ -1167,32 +1159,77 @@ body.study-drawing #studyCanvas{pointer-events:auto!important;cursor:crosshair}
 (function(){
 "use strict";
 window.reveal=window.reveal||function(b){b.nextElementSibling.classList.toggle("show")};
-const bar=document.getElementById("studyTools"),cv=document.getElementById("studyCanvas"),
-cx=cv.getContext("2d"),notes=document.getElementById("studyNotes"),note=document.getElementById("studyNoteText");
-let tool=null,down=false,current=null,strokes=[],dpr=1;
-function fit(){dpr=Math.max(1,devicePixelRatio||1);cv.width=Math.round(innerWidth*dpr);cv.height=Math.round(innerHeight*dpr);cx.setTransform(dpr,0,0,dpr,0,0);redraw()}
-function pt(e){return{x:e.clientX,y:e.clientY}}
-function draw(s){if(!s.p.length)return;cx.save();cx.lineCap="round";cx.lineJoin="round";
- if(s.t==="marker"){cx.globalAlpha=.34;cx.strokeStyle="#FFD43B";cx.lineWidth=22}
- else if(s.t==="eraser"){cx.globalCompositeOperation="destination-out";cx.lineWidth=34}
- else{cx.strokeStyle="#153f73";cx.lineWidth=3.5}
- cx.beginPath();cx.moveTo(s.p[0].x,s.p[0].y);for(let i=1;i<s.p.length;i++)cx.lineTo(s.p[i].x,s.p[i].y);
- if(s.p.length===1)cx.lineTo(s.p[0].x+.2,s.p[0].y+.2);cx.stroke();cx.restore()}
-function redraw(){cx.save();cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,cv.width,cv.height);cx.restore();strokes.forEach(draw)}
-function select(t){tool=t;document.body.classList.add("study-drawing");bar.querySelectorAll("[data-tool]").forEach(x=>x.classList.toggle("active",x.dataset.tool===t))}
-function done(){tool=null;down=false;current=null;document.body.classList.remove("study-drawing");bar.querySelectorAll("[data-tool]").forEach(x=>x.classList.remove("active"))}
-bar.onclick=function(e){let x=e.target.closest("button");if(!x)return;if(x.dataset.tool)return select(x.dataset.tool);
- if(x.dataset.action==="notes"){done();notes.classList.add("open");setTimeout(()=>note.focus(),20)}
- if(x.dataset.action==="undo"){strokes.pop();redraw()} if(x.dataset.action==="clear"){strokes=[];redraw()} if(x.dataset.action==="done")done()};
+
+const bar=document.getElementById("studyTools");
+const svg=document.getElementById("studyCanvas");
+const notes=document.getElementById("studyNotes");
+const note=document.getElementById("studyNoteText");
+let tool=null, drawing=false, path=null, points=[];
+
+function sizeLayer(){
+  const h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+  const w=Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
+  svg.setAttribute("width",w); svg.setAttribute("height",h);
+  svg.setAttribute("viewBox","0 0 "+w+" "+h);
+}
+function p(e){return [e.clientX+window.scrollX,e.clientY+window.scrollY]}
+function dFrom(a){
+  if(!a.length)return "";
+  let d="M "+a[0][0]+" "+a[0][1];
+  for(let i=1;i<a.length;i++)d+=" L "+a[i][0]+" "+a[i][1];
+  if(a.length===1)d+=" L "+(a[0][0]+.2)+" "+(a[0][1]+.2);
+  return d;
+}
+function activate(t){
+  // Clicking the currently active Pen/Marker/Eraser switches it OFF.
+  if(tool===t){deactivate();return}
+  tool=t;
+  document.body.classList.add("study-drawing");
+  bar.querySelectorAll("[data-tool]").forEach(b=>b.classList.toggle("active",b.dataset.tool===t));
+}
+function deactivate(){
+  tool=null;drawing=false;path=null;points=[];
+  document.body.classList.remove("study-drawing");
+  bar.querySelectorAll("[data-tool]").forEach(b=>b.classList.remove("active"));
+}
+function openNotes(){
+  deactivate();
+  notes.classList.toggle("open");
+  if(notes.classList.contains("open"))setTimeout(()=>note.focus(),20);
+}
+bar.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.tool){activate(b.dataset.tool);return}
+  const a=b.dataset.action;
+  if(a==="notes")openNotes();
+  if(a==="undo"){const last=svg.lastElementChild;if(last)last.remove()}
+  if(a==="clear"){while(svg.firstChild)svg.firstChild.remove()}
+});
 document.getElementById("closeNotes").onclick=()=>notes.classList.remove("open");
 document.getElementById("clearNotes").onclick=()=>{note.value="";try{localStorage.removeItem("articleStudyNotes")}catch(_){}};
 try{note.value=localStorage.getItem("articleStudyNotes")||"";note.oninput=()=>localStorage.setItem("articleStudyNotes",note.value)}catch(_){}
-function begin(e){if(!tool)return;down=true;current={t:tool,p:[pt(e)]};strokes.push(current);try{cv.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault()}
-function move(e){if(!down||!current)return;current.p.push(pt(e));redraw();e.preventDefault()}
-function end(e){if(!down)return;down=false;current=null;try{cv.releasePointerCapture(e.pointerId)}catch(_){};e.preventDefault()}
-cv.addEventListener("pointerdown",begin,{passive:false});cv.addEventListener("pointermove",move,{passive:false});
-cv.addEventListener("pointerup",end,{passive:false});cv.addEventListener("pointercancel",end,{passive:false});
-addEventListener("resize",fit);fit();
+
+svg.addEventListener("pointerdown",e=>{
+  if(!tool)return;
+  drawing=true;points=[p(e)];
+  path=document.createElementNS("http://www.w3.org/2000/svg","path");
+  path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");path.setAttribute("stroke-linejoin","round");
+  if(tool==="marker"){path.setAttribute("stroke","#FFD43B");path.setAttribute("stroke-width","22");path.setAttribute("opacity",".34")}
+  else if(tool==="eraser"){path.setAttribute("stroke","#f6f8fb");path.setAttribute("stroke-width","34");path.setAttribute("opacity","1")}
+  else{path.setAttribute("stroke","#153f73");path.setAttribute("stroke-width","3.5")}
+  path.setAttribute("d",dFrom(points));svg.appendChild(path);
+  try{svg.setPointerCapture(e.pointerId)}catch(_){}
+  e.preventDefault();
+},{passive:false});
+svg.addEventListener("pointermove",e=>{
+  if(!drawing||!path)return;points.push(p(e));path.setAttribute("d",dFrom(points));e.preventDefault();
+},{passive:false});
+function end(e){if(!drawing)return;drawing=false;path=null;points=[];try{svg.releasePointerCapture(e.pointerId)}catch(_){};e.preventDefault()}
+svg.addEventListener("pointerup",end,{passive:false});svg.addEventListener("pointercancel",end,{passive:false});
+
+window.addEventListener("resize",sizeLayer);
+new ResizeObserver(sizeLayer).observe(document.body);
+sizeLayer();
 })();
 </script>
 
