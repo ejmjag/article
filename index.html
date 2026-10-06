@@ -1133,10 +1133,10 @@ body.draw-mode .toolbar,body.draw-mode .note-sheet{cursor:default}
 #studyTools .doneBtn{display:none;background:#d1ad65}
 body.study-drawing #studyTools .doneBtn{display:block}
 #studyCanvas{
-  position:absolute;left:0;top:0;z-index:2147483000;
-  pointer-events:none;touch-action:none
+  position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
+  z-index:2147483000!important;pointer-events:none!important;touch-action:none!important
 }
-body.study-drawing #studyCanvas{pointer-events:auto;cursor:crosshair}
+body.study-drawing #studyCanvas{pointer-events:auto!important;cursor:crosshair}
 #studyNotes{
   position:fixed;z-index:2147483647;right:22px;bottom:82px;width:min(390px,calc(100vw - 28px));
   background:#fff;border:1px solid #dbe2ea;border-radius:12px;
@@ -1165,72 +1165,34 @@ body.study-drawing #studyCanvas{pointer-events:auto;cursor:crosshair}
 
 <script id="study-tools-js">
 (function(){
-  "use strict";
-  window.reveal = window.reveal || function(b){ b.nextElementSibling.classList.toggle("show"); };
-
-  const tools=document.getElementById("studyTools");
-  const canvas=document.getElementById("studyCanvas");
-  const ctx=canvas.getContext("2d");
-  const notes=document.getElementById("studyNotes");
-  const noteText=document.getElementById("studyNoteText");
-  let active=null, drawing=false, current=null, strokes=[], dpr=1;
-
-  function pageSize(){
-    const de=document.documentElement, b=document.body;
-    return {w:Math.max(de.scrollWidth,b.scrollWidth,innerWidth),h:Math.max(de.scrollHeight,b.scrollHeight,innerHeight)};
-  }
-  function resizeCanvas(){
-    const z=pageSize(); dpr=Math.max(1,devicePixelRatio||1);
-    canvas.style.width=z.w+"px"; canvas.style.height=z.h+"px";
-    canvas.width=Math.round(z.w*dpr); canvas.height=Math.round(z.h*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0); redraw();
-  }
-  function pos(e){return {x:e.clientX+scrollX,y:e.clientY+scrollY}}
-  function paint(s){
-    if(!s.points.length)return;
-    ctx.save();ctx.lineCap="round";ctx.lineJoin="round";
-    if(s.tool==="marker"){ctx.strokeStyle="#f1c84b";ctx.globalAlpha=.34;ctx.lineWidth=20}
-    else if(s.tool==="eraser"){ctx.globalCompositeOperation="destination-out";ctx.lineWidth=34}
-    else{ctx.strokeStyle="#173f70";ctx.lineWidth=3}
-    ctx.beginPath();ctx.moveTo(s.points[0].x,s.points[0].y);
-    for(let i=1;i<s.points.length;i++)ctx.lineTo(s.points[i].x,s.points[i].y);
-    if(s.points.length===1)ctx.lineTo(s.points[0].x+.2,s.points[0].y+.2);
-    ctx.stroke();ctx.restore();
-  }
-  function redraw(){const z=pageSize();ctx.clearRect(0,0,z.w,z.h);strokes.forEach(paint)}
-  function setTool(t){
-    active=(active===t?null:t);
-    document.body.classList.toggle("study-drawing",!!active);
-    tools.querySelectorAll("[data-tool]").forEach(b=>b.classList.toggle("active",b.dataset.tool===active));
-  }
-  function done(){active=null;drawing=false;current=null;document.body.classList.remove("study-drawing");tools.querySelectorAll("[data-tool]").forEach(b=>b.classList.remove("active"))}
-  function openNotes(){done();notes.classList.add("open");notes.setAttribute("aria-hidden","false");setTimeout(()=>noteText.focus(),20)}
-  function closeNotes(){notes.classList.remove("open");notes.setAttribute("aria-hidden","true")}
-
-  tools.addEventListener("click",function(e){
-    const b=e.target.closest("button"); if(!b)return;
-    if(b.dataset.tool){setTool(b.dataset.tool);return}
-    const a=b.dataset.action;
-    if(a==="notes")openNotes();
-    else if(a==="undo"){if(strokes.length){strokes.pop();redraw()}}
-    else if(a==="clear"){strokes=[];redraw()}
-    else if(a==="done")done();
-  });
-  document.getElementById("closeNotes").addEventListener("click",closeNotes);
-  document.getElementById("clearNotes").addEventListener("click",function(){noteText.value="";try{localStorage.removeItem("articleStudyNotes")}catch(_){}});
-  try{noteText.value=localStorage.getItem("articleStudyNotes")||"";noteText.addEventListener("input",()=>localStorage.setItem("articleStudyNotes",noteText.value))}catch(_){}
-
-  canvas.addEventListener("pointerdown",function(e){
-    if(!active)return;drawing=true;current={tool:active,points:[pos(e)]};strokes.push(current);
-    try{canvas.setPointerCapture(e.pointerId)}catch(_){} e.preventDefault();
-  });
-  canvas.addEventListener("pointermove",function(e){if(!drawing||!current)return;current.points.push(pos(e));redraw();e.preventDefault()});
-  function end(e){if(!drawing)return;drawing=false;current=null;try{canvas.releasePointerCapture(e.pointerId)}catch(_){}}
-  canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);
-
-  addEventListener("resize",resizeCanvas);
-  addEventListener("load",resizeCanvas);
-  setTimeout(resizeCanvas,50);
+"use strict";
+window.reveal=window.reveal||function(b){b.nextElementSibling.classList.toggle("show")};
+const bar=document.getElementById("studyTools"),cv=document.getElementById("studyCanvas"),
+cx=cv.getContext("2d"),notes=document.getElementById("studyNotes"),note=document.getElementById("studyNoteText");
+let tool=null,down=false,current=null,strokes=[],dpr=1;
+function fit(){dpr=Math.max(1,devicePixelRatio||1);cv.width=Math.round(innerWidth*dpr);cv.height=Math.round(innerHeight*dpr);cx.setTransform(dpr,0,0,dpr,0,0);redraw()}
+function pt(e){return{x:e.clientX,y:e.clientY}}
+function draw(s){if(!s.p.length)return;cx.save();cx.lineCap="round";cx.lineJoin="round";
+ if(s.t==="marker"){cx.globalAlpha=.34;cx.strokeStyle="#FFD43B";cx.lineWidth=22}
+ else if(s.t==="eraser"){cx.globalCompositeOperation="destination-out";cx.lineWidth=34}
+ else{cx.strokeStyle="#153f73";cx.lineWidth=3.5}
+ cx.beginPath();cx.moveTo(s.p[0].x,s.p[0].y);for(let i=1;i<s.p.length;i++)cx.lineTo(s.p[i].x,s.p[i].y);
+ if(s.p.length===1)cx.lineTo(s.p[0].x+.2,s.p[0].y+.2);cx.stroke();cx.restore()}
+function redraw(){cx.save();cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,cv.width,cv.height);cx.restore();strokes.forEach(draw)}
+function select(t){tool=t;document.body.classList.add("study-drawing");bar.querySelectorAll("[data-tool]").forEach(x=>x.classList.toggle("active",x.dataset.tool===t))}
+function done(){tool=null;down=false;current=null;document.body.classList.remove("study-drawing");bar.querySelectorAll("[data-tool]").forEach(x=>x.classList.remove("active"))}
+bar.onclick=function(e){let x=e.target.closest("button");if(!x)return;if(x.dataset.tool)return select(x.dataset.tool);
+ if(x.dataset.action==="notes"){done();notes.classList.add("open");setTimeout(()=>note.focus(),20)}
+ if(x.dataset.action==="undo"){strokes.pop();redraw()} if(x.dataset.action==="clear"){strokes=[];redraw()} if(x.dataset.action==="done")done()};
+document.getElementById("closeNotes").onclick=()=>notes.classList.remove("open");
+document.getElementById("clearNotes").onclick=()=>{note.value="";try{localStorage.removeItem("articleStudyNotes")}catch(_){}};
+try{note.value=localStorage.getItem("articleStudyNotes")||"";note.oninput=()=>localStorage.setItem("articleStudyNotes",note.value)}catch(_){}
+function begin(e){if(!tool)return;down=true;current={t:tool,p:[pt(e)]};strokes.push(current);try{cv.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault()}
+function move(e){if(!down||!current)return;current.p.push(pt(e));redraw();e.preventDefault()}
+function end(e){if(!down)return;down=false;current=null;try{cv.releasePointerCapture(e.pointerId)}catch(_){};e.preventDefault()}
+cv.addEventListener("pointerdown",begin,{passive:false});cv.addEventListener("pointermove",move,{passive:false});
+cv.addEventListener("pointerup",end,{passive:false});cv.addEventListener("pointercancel",end,{passive:false});
+addEventListener("resize",fit);fit();
 })();
 </script>
 
