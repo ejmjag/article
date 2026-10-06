@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ARTICLES | MAGIST.PRO</title>
+<title>ARTICLES — KT English Grammar | MAGIST.PRO</title>
 
 <style>
 :root{
@@ -41,6 +41,7 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 .ex span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
 .note{background:var(--mint);border:0;border-left:5px solid #4b9b6b;border-radius:16px;padding:18px 22px;margin:20px 0}
 .warn{background:var(--rose);border-left-color:#d45d68}
+.trap{background:#fff7e8;border-left:5px solid #d59b32;border-radius:16px;padding:18px 22px;margin:20px 0}
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
 .box{background:white;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 8px 30px rgba(23,32,51,.04)}
 .box h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
@@ -70,10 +71,287 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 }
 </style>
 
+
+<style>
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:900;letter-spacing:.14em;
+  color:var(--accent);background:var(--accent2);
+  padding:7px 11px;border-radius:999px;margin-bottom:18px
+}
+.exam-map{
+  background:linear-gradient(180deg,rgba(111,82,237,.055),transparent 58%);
+  border-radius:34px;padding-left:26px;padding-right:26px
+}
+.decision-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:28px 0
+}
+.decision-card{
+  position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:22px 22px 20px;min-height:150px
+}
+.decision-card h3{margin:7px 0 8px;font-size:20px}
+.decision-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+.decision-no{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--accent)}
+.article-switch{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0
+}
+.article-switch>div{
+  background:var(--nav);color:#fff;border-radius:18px;padding:20px
+}
+.article-switch strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:25px;margin-bottom:5px}
+.article-switch span{display:block;color:#dcd9eb;font-size:14px;line-height:1.45}
+.final-summary{
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  padding-left:30px;padding-right:30px;box-shadow:var(--shadow);margin-top:54px
+}
+.summary-table{border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:26px 0}
+.sum-row{display:grid;grid-template-columns:1.05fr 1.65fr 1fr;border-bottom:1px solid var(--line)}
+.sum-row:last-child{border-bottom:0}
+.sum-row>*{padding:15px 16px}
+.sum-row span{font-size:14px;color:var(--muted)}
+.sum-head{background:var(--nav);color:#fff;font-weight:900}
+.sum-head span{color:#fff;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.exam-check{background:var(--warm);border-radius:18px;padding:20px 22px;margin-top:22px}
+.exam-check h3{margin:0 0 8px;font-size:20px}
+.exam-check p{margin:0}
+.q{transition:transform .18s ease,box-shadow .18s ease}
+.q:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(23,32,51,.06)}
+.q .tag{user-select:none}
+.answer{border-left:4px solid #d6a13a}
+@media(max-width:800px){
+  .exam-map,.final-summary{padding-left:18px;padding-right:18px;border-radius:24px}
+  .decision-grid,.article-switch{grid-template-columns:1fr}
+  .sum-row{grid-template-columns:1fr}
+  .sum-head{display:none}
+  .sum-row>*{padding:10px 14px}
+  .sum-row b{padding-top:16px;padding-bottom:2px}
+  .sum-row span:last-child{padding-top:0;padding-bottom:16px;color:var(--ink)}
+}
+</style>
+
+
+<style>
+/* MAGIST.PRO — English editorial / language-school redesign */
+:root{
+  --ink:#12233f;
+  --muted:#637083;
+  --paper:#f6f8fb;
+  --card:#ffffff;
+  --line:#dfe5ec;
+  --accent:#123f73;
+  --accent2:#eaf1f8;
+  --warm:#fff6df;
+  --mint:#edf7f2;
+  --rose:#fff0f0;
+  --nav:#0d2948;
+  --shadow:0 14px 38px rgba(18,35,63,.08);
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Arial,"Helvetica Neue",sans-serif;
+  font-size:17px;
+  line-height:1.68;
+}
+.hero{
+  min-height:68vh;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(7,25,47,.96),rgba(18,63,115,.91)),
+    linear-gradient(135deg,#07192f,#123f73);
+  padding:76px 24px 68px;
+  border-bottom:6px solid #c6a15b;
+}
+.hero .wrap{position:relative}
+.hero .wrap:before{
+  content:"ENGLISH GRAMMAR · KT PREPARATION";
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  padding:8px 13px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.17em;
+  margin-bottom:24px;
+}
+.hero .kicker{display:none}
+.hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(64px,10vw,132px);
+  line-height:.9;
+  letter-spacing:-.045em;
+  margin:0 0 24px;
+  font-weight:600;
+}
+.hero h1:after{
+  content:"A · AN · THE · Ø";
+  display:block;
+  font-family:Arial,"Helvetica Neue",sans-serif;
+  font-size:clamp(15px,1.8vw,21px);
+  letter-spacing:.18em;
+  margin-top:25px;
+  color:#e8cf9d;
+}
+.hero p{
+  font-family:Georgia,"Times New Roman",serif;
+  max-width:760px;
+  font-size:clamp(18px,2vw,25px);
+  color:#e9eef5;
+}
+nav{
+  justify-content:center;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 5px 18px rgba(18,35,63,.04);
+}
+nav a{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.055em;
+  padding:17px 12px;
+}
+nav a:hover{color:var(--accent);border-color:#c6a15b}
+main{width:min(1040px,calc(100% - 30px));margin-top:28px}
+.chapter{
+  padding:68px 0;
+  border-bottom:1px solid var(--line);
+}
+.chapter>h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(37px,5vw,58px);
+  color:#102b4c;
+  letter-spacing:-.025em;
+}
+.chapter>.sub{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:19px;
+  color:#536278;
+}
+.rule{
+  border-radius:10px;
+  border:1px solid #dce3eb;
+  border-top:4px solid var(--accent);
+  padding:32px 34px;
+  box-shadow:0 7px 22px rgba(18,35,63,.055);
+}
+.rule:before{
+  content:"GRAMMAR RULE";
+  top:17px;
+  color:#8b6c32;
+}
+.rule h3{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#102b4c;
+  font-size:28px;
+}
+.formula{
+  background:#102b4c;
+  border-radius:7px;
+  font-family:"Courier New",monospace;
+  font-size:16px;
+  letter-spacing:.01em;
+}
+.examples{
+  background:#f1f4f7;
+  border-left:3px solid #8ca2ba;
+  border-radius:4px;
+}
+.note{
+  background:#eef5f1;
+  border-left:4px solid #527e68;
+  border-radius:5px;
+}
+.warn,.trap{
+  background:#fff4ec;
+  border-left:4px solid #b56b42;
+  border-radius:5px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.box{
+  border-radius:8px;
+  box-shadow:none;
+  border-top:3px solid #c6a15b;
+}
+.box h4{color:#8b6c32}
+.q{
+  border-radius:9px;
+  border:1px solid #d8e0e8;
+  border-left:5px solid #123f73;
+  padding:27px 28px;
+}
+.tag{
+  background:#eaf1f8;
+  color:#123f73;
+  border-radius:4px;
+}
+.opt{
+  background:#f5f7f9;
+  border-radius:5px;
+  padding:11px 14px;
+}
+.q button{
+  background:#123f73;
+  border-radius:5px;
+  padding:11px 16px;
+}
+.answer{
+  background:#fff7e8;
+  border-left:4px solid #c6a15b;
+  border-radius:5px;
+}
+.term{background:#eaf1f8;border-radius:4px}
+.glossary div{border-radius:5px}
+.section-label{
+  background:#eaf1f8;
+  color:#123f73;
+  border-radius:4px;
+}
+.exam-map{
+  background:transparent;
+  border-radius:0;
+}
+.decision-card{
+  border-radius:8px;
+  border-top:3px solid #c6a15b;
+  box-shadow:0 6px 18px rgba(18,35,63,.04);
+}
+.decision-no{color:#8b6c32}
+.article-switch>div{
+  background:#102b4c;
+  border-radius:7px;
+  border-bottom:3px solid #c6a15b;
+}
+.final-summary{
+  border-radius:10px;
+  box-shadow:0 8px 26px rgba(18,35,63,.06);
+}
+.summary-table{border-radius:6px}
+.sum-head{background:#102b4c}
+.exam-check{border-radius:6px;border-left:4px solid #c6a15b}
+.toolbar{
+  background:#102b4c;
+  border-radius:8px;
+}
+.toolbar button{border-radius:4px}
+#notesPanel{border-radius:8px}
+@media(max-width:800px){
+  body{font-size:16px}
+  .hero{min-height:56vh;padding:58px 20px 50px}
+  .hero h1{font-size:62px}
+  nav{justify-content:flex-start}
+  .chapter{padding:48px 0}
+  .rule{padding:27px 20px}
+  .rule h3{font-size:25px}
+  .q{padding:22px 18px}
+}
+</style>
+
 </head>
 <body>
 <header class="hero"><div class="wrap"><div class="kicker">MAGIST.PRO · general — жалпы English Grammar</div><h1>ARTICLES</h1><p>Ағылшын тіліндегі артикльдер: <b>Definite Article — THE</b>, <b>Indefinite Article — A / AN</b> және <b>Zero Article — Ø</b>.</p></div></header>
-<nav><a href="#intro">Article</a><a href="#aan">A / AN</a><a href="#the">THE</a><a href="#zero">Ø</a><a href="#names">Names</a><a href="#deep-special">Detailed cases</a><a href="#geo">Geography</a><a href="#special">Special cases</a><a href="#mix">Practice</a></nav>
+<nav><a href="#intro">Article</a><a href="#exam-map">Exam map</a><a href="#aan">A / AN</a><a href="#the">THE</a><a href="#zero">Ø</a><a href="#names">Names</a><a href="#geo">Geography</a><a href="#special">Special cases</a><a href="#summary">Summary</a><a href="#mix">Practice</a></nav>
 <main>
 
 <section class="chapter" id="intro">
@@ -86,7 +364,44 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 </div>
 <div class="note"><b>Маңызды:</b> article таңдағанда сөздің өзін ғана емес, сөйлемдегі <b>мағынасын және контекстін</b> де қараймыз.</div>
 
-<div class="note"><b>КТ үшін негізгі қамту:</b> Definite Article, Indefinite Article, Zero Article, geographical names, proper names және personal names. Сабақ осы тақырыптарды бір жүйеде түсіндіреді.</div>
+</section>
+
+<div class="note"><b>КТ спецификациясы бойынша Articles толық қамту:</b> ✓ Indefinite Article (A/AN) &nbsp; ✓ Definite Article (THE) &nbsp; ✓ Zero Article (Ø) &nbsp; ✓ Geographical names &nbsp; ✓ Proper names &nbsp; ✓ Personal names.</div>
+
+<section class="chapter exam-map" id="exam-map">
+  <div class="section-label">KT · EXAM MAP</div>
+  <h2>Articles-ті қалай тез таңдаймыз?</h2>
+  <p class="sub">Ережені жаттап қана қоймай, сөйлемдегі мағынаны анықта. КТ тапсырмасында article таңдағанда осы ретпен ойлан.</p>
+
+  <div class="decision-grid">
+    <div class="decision-card">
+      <span class="decision-no">01</span>
+      <h3>Noun қандай?</h3>
+      <p>Singular countable ма? Plural ма? Uncountable ма? Proper name ма?</p>
+    </div>
+    <div class="decision-card">
+      <span class="decision-no">02</span>
+      <h3>Нақты ма?</h3>
+      <p>Тыңдаушы қай адам/зат екенін біле ме? Бұрын айтылды ма? Контекст нақтылап тұр ма?</p>
+    </div>
+    <div class="decision-card">
+      <span class="decision-no">03</span>
+      <h3>Жалпы ма?</h3>
+      <p>Plural немесе uncountable noun бүкіл класс/ұғым туралы жалпы мағынада тұр ма?</p>
+    </div>
+    <div class="decision-card">
+      <span class="decision-no">04</span>
+      <h3>Proper name ма?</h3>
+      <p>Адам, ел, қала, өзен, теңіз, тау, ұйым сияқты атауларда жеке қалыптасқан article үлгісін тексер.</p>
+    </div>
+  </div>
+
+  <div class="article-switch">
+    <div><strong>A / AN</strong><span>біреу · алғаш рет · singular countable</span></div>
+    <div><strong>THE</strong><span>нақты · белгілі · unique · second mention</span></div>
+    <div><strong>Ø</strong><span>жалпы plural/uncountable · көптеген proper names</span></div>
+  </div>
+  <div class="note"><b>Емтихан стратегиясы:</b> алдымен noun түрін анықта, содан кейін <b>specific ↔ general</b> мағынасын тексер. A/AN таңдауы керек болса, ең соңында келесі сөздің <b>дыбысына</b> қара.</div>
 </section>
 
 <section class="chapter" id="aan">
@@ -97,12 +412,12 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <h3>Ең алдымен: неге A және AN деген екі форма бар?</h3>
 <p><b>A</b> және <b>AN</b> — екі бөлек артикль емес. Екеуі де бір ғана <b>Indefinite Article — белгісіздік артиклінің</b> екі формасы. Мағынасы бірдей. Айырмашылық тек айтылуында.</p>
 <div class="formula">A + consonant sound (дауыссыз дыбыс) &nbsp;&nbsp; | &nbsp;&nbsp; AN + vowel sound (дауысты дыбыс)</div>
-<p>Қай форманы таңдайтынымыз <b>әріпке емес, артикльден кейін бірден естілетін алғашқы дыбысқа</b> байланысты. Сондықтан сөз дауысты әріптен басталып тұрса да A болуы мүмкін; дауыссыз әріптен басталып тұрса да AN болуы мүмкін.</p>
+<p>Қай форманы таңдайтынымыз сөздің <b>қалай жазылғанына емес, қалай айтылатынына</b> байланысты. <b>A</b> — келесі сөздің алғашқы естілетін дыбысы дауыссыз болса, <b>AN</b> — алғашқы естілетін дыбысы дауысты болса қолданылады.</p>
 <div class="glossary">
 <div><b>article</b> — артикль</div><div><b>indefinite</b> — белгісіз</div>
-<div><b>noun</b> — зат есім</div><div><b>adjective — сын есім</b> — сын есім</div>
+<div><b>noun</b> — зат есім</div><div><b>adjective</b> — сын есім</div>
 <div><b>singular</b> — жекеше</div><div><b>plural</b> — көпше</div>
-<div><b>countable noun</b> — саналатын зат есім</div><div><b>uncountable noun — саналмайтын зат есім</b> — саналмайтын зат есім</div>
+<div><b>countable noun</b> — саналатын зат есім</div><div><b>uncountable noun</b> — саналмайтын зат есім</div>
 <div><b>consonant sound</b> — дауыссыз дыбыс</div><div><b>vowel sound</b> — дауысты дыбыс</div>
 </div>
 <div class="examples">
@@ -117,7 +432,7 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="ex"><b>an honest person</b><span>адал адам — honest сөзінде h айтылмайды</span></div>
 <div class="ex"><b>an MP</b><span>бір парламент мүшесі — M әрпі /em/ деп оқылады</span></div>
 </div>
-<div class="note"><b>Есте сақта:</b> A/AN таңдағанда сөздің жазылуына емес, <b>айтылуына</b> қара.</div>
+<div class="note"><b>Есте сақта:</b> A/AN таңдағанда сөздің жазылуына емес, <b>айтылуына</b> қара.</div><div class="q"><div class="tag">TEST 01</div><h4>When I went to Rome, I stayed with ___ Italian friend of mine.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) an.</b> Italian сөзінің алғашқы естілетін дыбысы дауысты → <b>an Italian friend</b>.</div></div>
 </div>
 
 <p class="sub"><b>Indefinite</b> — белгісіз, нақты қайсысы екені көрсетілмеген. A/AN негізінен <b>singular countable noun — жекеше саналатын зат есім</b> алдында қолданылады.</p>
@@ -129,26 +444,33 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <h3>2. Бір адам/зат, нақты қайсысы маңызды емес</h3>
 <div class="examples">I need <b>a pen</b>.<br>She wants to buy <b>a bag</b>.</div>
 
+<div class="q"><div class="tag">TEST 02</div><h4>I need ___ picture-hook to hang this picture.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Нақты қайсысы екені маңызды емес бір picture-hook керек → <b>a picture-hook</b>.</div></div>
 <h3>3. Алғаш рет айтылған адам немесе зат</h3>
 <div class="examples">I saw <b>a woman</b>.<br>There is <b>a car</b> outside.</div>
 
+<div class="q"><div class="tag">TEST 03</div><h4>During our journey we came to ___ bridge.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Bridge алғаш рет айтылып тұр → <b>a bridge</b>. Кейін қайта айтылса <b>the bridge</b>.</div></div>
 <h3>4. One of many — топтың бір мүшесі</h3>
 <div class="examples">He is <b>a student</b> at this university.<br>This is <b>a book</b> about history.</div>
 
+<div class="q"><div class="tag">TEST 04</div><h4>Have you ever seen ___ silent movie?</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Белгілі бір фильм емес, топтың кез келген бір мүшесі → <b>a silent movie</b>.</div></div>
 <h3>5. Profession — мамандық</h3>
 <div class="examples">She is <b>a teacher</b>.<br>He is <b>an engineer</b>.<br>My sister is <b>a doctor</b>.</div>
 
+<div class="q"><div class="tag">TEST 05</div><h4>What does she do? She is ___ architect.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) an.</b> Мамандық жекеше саналатын зат есіммен берілгенде A/AN қолданылады; architect дауысты дыбыстан басталады.</div></div>
 <h3>6. Classification — түрге/топқа жатқызу</h3>
 <div class="examples">A whale is <b>a mammal</b>.<br>A rose is <b>a flower</b>.</div>
 
+<div class="q"><div class="tag">TEST 06</div><h4>A whale is ___ mammal.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Whale белгілі бір класқа жатқызылып тұр → <b>a mammal</b>.</div></div>
 <h3>7. Description: article + adjective — сын есім + noun</h3>
 <div class="examples"><b>a nice person</b><br><b>a beautiful girl</b><br><b>an interesting book</b><br><b>an expensive car</b></div>
 <p>Сын есім зат есімнің алдында тұрса да, A/AN бүкіл noun phrase-пен бірге қолданылады.</p>
 <div class="trap"><b>Назар аудар:</b> A немесе AN таңдағанда артикльден кейін бірден тұрған сөздің <b>дыбысына</b> қараймыз: <b>a beautiful day</b>, бірақ <b>an amazing day</b>.</div>
 
+<div class="q"><div class="tag">TEST 07</div><h4>She is ___ good girl.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> A/AN + adjective + singular countable noun. Good /g/ дауыссыз дыбысынан басталады.</div></div>
 <h3>8. A/AN = one</h3>
 <div class="examples">I have <b>a brother</b>. — Менің бір ағам/інім бар.<br>Wait <b>a minute</b>. — Бір минут күт.</div>
 
+<div class="q"><div class="tag">TEST 08</div><h4>There were over ___ hundred people at the party.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <b>A hundred</b> = one hundred мағынасында қолданыла алады.</div></div>
 <h3>9. Frequency — жиілік</h3>
 <p><b>Frequency</b> — іс-әрекеттің қаншалықты жиі қайталанатынын көрсететін мағына. Бұл жерде <b>a/an</b> уақыт бірлігімен бірге «әр / бір уақыт аралығында» деген мағына береді.</p>
 <div class="rule">once / twice / three times + A/AN + уақыт аралығы</div>
@@ -157,6 +479,7 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="note"><b>Қалай танимыз?</b> Сөйлемде once, twice, three times, four times сияқты қайталану саны және day/week/month/year сияқты уақыт бірлігі тұрса, frequency құрылымын тексер.</div>
 <div class="trap"><b>Назар аудар:</b> A/AN таңдауы бәрібір дыбысқа байланысты: <b>a day, a week, a year</b>, бірақ <b>an hour</b>.</div>
 
+<div class="q"><div class="tag">TEST 09</div><h4>The rubbish is collected twice ___ week.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Жиілік үлгісі: <b>twice a week</b> — аптасына екі рет.</div></div>
 <h3>10. Rate / price / speed — мөлшер, баға, жылдамдық</h3>
 <p><b>Rate</b> — белгілі бір уақытқа, салмаққа немесе басқа өлшемге шаққандағы мөлшер. Мұндай құрылымда <b>a/an</b> көбіне қазақша «әр», «-ына/-іне» мағынасына сәйкес келеді.</p>
 <div class="examples"><b>60 kilometres an hour</b> — сағатына 60 км<br><b>$20 a kilo</b> — килограмына 20 доллар<br><b>five days a week</b> — аптасына бес күн</div>
@@ -164,6 +487,7 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="note"><b>КТ-да қалай танимыз?</b> Сан + өлшем + бос орын + hour/day/week/kilo сияқты сөз келсе, «per / әр» мағынасындағы A/AN болуы мүмкін.</div>
 
 
+<div class="q"><div class="tag">TEST 10</div><h4>We are travelling at 100 km ___ hour.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) an.</b> Жылдамдық үлгісі: <b>100 km an hour</b>. Hour сөзінде h айтылмайды.</div></div>
 <h3>11. Illness expressions — ауру мен жай-күй атауларында A/AN</h3>
 <p><b>Illness expression — ауру/денсаулық жағдайын білдіретін тіркес.</b> Бұл жерде бір ғана «барлық аурудың алдына A қой» деген ереже жоқ. Кейбір атаулар ағылшын тілінде <b>countable expression — саналатын тіркес</b> ретінде қалыптасқан, ал басқалары article-сіз немесе THE-мен қолданылады. Сондықтан топтарға бөліп үйренеміз.</p>
 <div class="formula">HAVE + A/AN + countable illness expression</div>
@@ -188,11 +512,12 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="ex"><b>have malaria</b><span>безгекпен ауыру</span></div>
 </div>
 <div class="note"><b>Назар аудар:</b> бұл тізімде article-ді қазақша аудармадан анықтай алмаймыз. Тіркесті ағылшын тіліндегі қалыптасқан үлгісімен есте сақтаймыз: <b>a headache</b>, бірақ <b>diabetes</b>.</div>
+<div class="q"><div class="tag">TEST 11</div><h4>I think I've got ___ cold.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <b>A cold</b> — A/AN-мен қолданылатын қалыптасқан illness expression.</div></div>
 <h3>12. What a/an...!</h3>
 <div class="rule">What + a/an + adjective — сын есім + singular countable noun — жекеше саналатын зат есім!</div>
 <div class="examples">What <b>a beautiful day!</b><br>What <b>an interesting idea!</b></div>
 
-<div class="q"><div class="tag">TEST 01</div><h4>A: He always helps his mom with chores. B: ___</h4><div class="opts"><div class="opt">A) What good boy he is!</div><div class="opt">B) What a good boy!</div><div class="opt">C) What is a good boy!</div><div class="opt">D) What good a boy!</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) What a good boy!</b> Құрылым: What + a + adjective — сын есім + singular countable noun — жекеше саналатын зат есім.</div></div>
+<div class="q"><div class="tag">TEST 12</div><h4>A: He always helps his mom with chores. B: ___</h4><div class="opts"><div class="opt">A) What good boy he is!</div><div class="opt">B) What a good boy!</div><div class="opt">C) What is a good boy!</div><div class="opt">D) What good a boy!</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) What a good boy!</b> Құрылым: What + a + adjective — сын есім + singular countable noun — жекеше саналатын зат есім.</div></div>
 
 <h3>13. Such + a/an</h3>
 <p><b>Such</b> бір адамның немесе заттың қасиетін ерекше атап көрсету үшін қолданылады. Егер одан кейін <b>singular countable noun — жекеше саналатын зат есім</b> келсе, құрылымда <b>a/an</b> сақталады.</p>
@@ -200,20 +525,63 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="examples">such <b>a good idea</b> — сондай жақсы идея<br>such <b>an interesting story</b> — сондай қызық оқиға<br>It was such <b>a difficult question</b>. — Бұл сондай қиын сұрақ болды.</div>
 <div class="trap"><b>Сөз реті:</b> such a good idea ✓ &nbsp; | &nbsp; a such good idea ✗</div>
 
+<div class="rule">
 <h3>14. Quite / rather + a/an</h3>
-<p><b>Quite</b> және <b>rather</b> сынның дәрежесін күшейтіп немесе бағалап көрсетуі мүмкін. singular countable noun — жекеше саналатын зат есім болғанда article көбіне adjective — сын есім пен noun-ның алдында, бірақ quite/rather сөздерінен кейін тұрады.</p>
-<div class="rule">quite / rather + a/an + adjective — сын есім + noun</div>
-<div class="examples">quite <b>a difficult question</b> — едәуір қиын сұрақ<br>rather <b>a strange situation</b> — біршама оғаш жағдай<br>quite <b>an interesting book</b> — өте/едәуір қызық кітап</div>
+<p><b>Quite</b> және <b>rather</b> сынның дәрежесін күшейтіп немесе бағалап көрсетеді. Егер тіркесте <b>singular countable noun — жекеше саналатын зат есім</b> болса, <b>a/an</b> сақталады және ол <b>quite/rather</b> сөзінен кейін келеді.</p>
+<div class="formula">quite / rather + A/AN + adjective + singular countable noun</div>
+<div class="examples">
+<div class="ex"><b>quite a difficult question</b><span>едәуір қиын сұрақ</span></div>
+<div class="ex"><b>rather a strange situation</b><span>біршама оғаш жағдай</span></div>
+<div class="ex"><b>quite an interesting book</b><span>өте/едәуір қызық кітап</span></div>
+<div class="ex"><b>It was quite a long journey.</b><span>Бұл едәуір ұзақ сапар болды.</span></div>
+</div>
+<div class="note"><b>Назар аудар:</b> сөз реті: ✓ <b>quite a good idea</b>, ✓ <b>rather an unusual answer</b>. Article adjective пен noun-ның алдында, бірақ <b>quite/rather</b> сөзінен кейін тұрады.</div>
+<div class="q"><div class="tag">TEST 13</div><h4>It was quite ___ interesting story.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) an.</b> Құрылым: <b>quite + an + adjective + singular countable noun</b>. <i>Interesting</i> дауысты дыбыстан басталады → <b>quite an interesting story</b>.</div></div>
+</div>
 
-<h3>16. A/AN қолданылмайтын негізгі жағдайлар</h3>
-<p>A/AN-ды кез келген зат есімнің алдына қоя алмаймыз. Оның негізгі шектеуі — ол әдеттегі қолданыста <b>жекеше саналатын зат есіммен</b> келеді. Сондықтан plural немесе жалпы мағынадағы uncountable noun — саналмайтын зат есім алдында A/AN қолданылмайды.</p>
-<div class="examples"><b>a books ✗</b> — plural<br><b>an information ✗</b> — uncountable<br><b>a money ✗</b> — uncountable</div>
-<p>Бірақ кейбір uncountable сөздер мағынасы өзгергенде саналатын қолданысқа өте алады: мысалы, <b>a coffee</b> күнделікті тілде «бір порция/бір шыны кофе» дегенді білдіруі мүмкін.</p>
+<div class="rule">
+<h3>15. Саналмайтын затты қалай санаймыз? — a cup of tea, a piece of advice</h3>
+<p><b>Uncountable noun — саналмайтын зат есімнің</b> алдына A/AN-ды тікелей қоя алмаймыз. Бірақ оның мөлшерін, ыдысын немесе бір бөлігін білдіретін <b>countable noun — саналатын зат есімді</b> қолдансақ, A/AN сол саналатын сөзге қатысты қойылады.</p>
+<div class="formula">A / AN + countable unit / container / piece + OF + uncountable noun</div>
+<div class="examples">
+<div class="ex"><b>a cup of tea</b><span>бір кесе шай</span></div><div class="ex"><b>a cup of coffee</b><span>бір кесе кофе</span></div>
+<div class="ex"><b>a glass of water</b><span>бір стақан су</span></div><div class="ex"><b>a bottle of water</b><span>бір бөтелке су</span></div>
+<div class="ex"><b>a litre of milk</b><span>бір литр сүт</span></div><div class="ex"><b>a bowl of rice</b><span>бір тостаған күріш</span></div>
+<div class="ex"><b>a loaf of bread</b><span>бір бөлке нан</span></div><div class="ex"><b>a slice of bread</b><span>бір тілім нан</span></div>
+<div class="ex"><b>a piece of information</b><span>бір ақпарат / ақпараттың бір бөлігі</span></div><div class="ex"><b>a piece of advice</b><span>бір кеңес</span></div>
+<div class="ex"><b>a piece of furniture</b><span>бір жиһаз заты</span></div><div class="ex"><b>a piece of equipment</b><span>бір жабдық</span></div>
+<div class="ex"><b>a piece of news</b><span>бір жаңалық</span></div><div class="ex"><b>a bar of chocolate</b><span>бір плитка шоколад</span></div>
+</div>
+<div class="note"><b>Назар аудар:</b> article <i>tea / water / advice</i> сөзіне емес, <b>cup / glass / piece</b> сияқты саналатын сөзге қатысты. ❌ <b>an advice</b> → ✓ <b>a piece of advice</b>; ❌ <b>an information</b> → ✓ <b>a piece of information</b>; ❌ <b>a bread</b> → ✓ <b>a loaf/slice of bread</b>.</div>
+<div class="q"><div class="tag">TEST 14</div><h4>Could I have ___ cup of tea, please?</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <i>Tea</i> — uncountable, бірақ article саналатын <b>cup</b> сөзіне қатысты. <i>Cup</i> /k/ дауыссыз дыбысынан басталады → <b>a cup of tea</b>.</div></div>
+<div class="q"><div class="tag">TEST 15</div><h4>She gave me ___ useful piece of advice.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <i>Advice</i> — uncountable, ал <i>piece</i> — countable. Article-ден кейін <i>useful</i> тұр; ол /j/ дауыссыз дыбысынан басталады → <b>a useful piece of advice</b>.</div></div>
+</div>
 
-<div class="q"><div class="tag">TEST 02</div><h4>He has received ___ from his friend today.</h4><div class="opts"><div class="opt">A) letters</div><div class="opt">B) letter’s</div><div class="opt">C) a letter</div><div class="opt">D) an letter</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>A және C контекстсіз грамматикалық тұрғыдан мүмкін.</b> “He has received letters...” және “He has received a letter...” екеуі де табиғи сөйлем. Сондықтан бұл сұрақты бір ғана сенімді жауабы бар A/AN тапсырмасы ретінде қолдануға болмайды. D қате: <i>letter</i> /l/ дыбысынан басталады.</div></div>
-
-
-<div class="q"><div class="tag">TEST 03</div>
+<div class="chapter-head" style="margin-top:54px;padding:28px 30px;border-radius:24px;background:#17233b;color:white;box-shadow:0 18px 45px rgba(23,35,59,.12)">
+<div style="font-size:12px;letter-spacing:.18em;font-weight:900;opacity:.7">A / AN — IMPORTANT</div>
+<h2 style="margin:8px 0 6px;color:white">16. A/AN қолданылмайтын жағдайлар</h2>
+<p style="margin:0;color:rgba(255,255,255,.88)">Осы жерден бастап A/AN <b>қойылмайтын</b> негізгі жағдайларды бөлек қараймыз.</p>
+</div>
+<div class="rule">
+<h3>16.1 Plural nouns — көпше зат есімдер</h3>
+<p>A/AN тек <b>singular countable noun</b>-мен келеді. Сондықтан көпше түрдегі зат есімнің алдына A/AN қойылмайды.</p>
+<div class="examples"><div class="ex"><b>books ✓</b><span>кітаптар</span></div><div class="ex"><b>a books ✗</b><span>A + plural болмайды</span></div><div class="ex"><b>Students need practice.</b><span>Студенттерге тәжірибе керек.</span></div></div>
+<div class="q"><div class="tag">TEST 16</div><h4>___ books can be expensive.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) –</div><div class="opt">D) One</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) –.</b> <i>Books</i> жалпы мағынада қолданылған plural noun, сондықтан article қажет емес → <b>Books can be expensive.</b></div></div>
+</div>
+<div class="rule">
+<h3>16.2 General uncountable nouns — жалпы мағынадағы саналмайтын зат есімдер</h3>
+<p><b>Information, advice, money, water, music, furniture, equipment</b> сияқты uncountable nouns жалпы мағынада A/AN алмайды.</p>
+<div class="examples"><div class="ex"><b>I need information.</b><span>Маған ақпарат керек.</span></div><div class="ex"><b>She gave me advice.</b><span>Ол маған кеңес берді.</span></div><div class="ex"><b>Money is important.</b><span>Ақша маңызды.</span></div><div class="ex"><b>Kate was listening to music.</b><span>Кейт музыка тыңдап отырды.</span></div></div>
+<div class="note"><b>Назар аудар:</b> ❌ an information, ❌ an advice, ❌ a money. Санын көрсету керек болса: <b>a piece of information, a piece of advice</b>.</div>
+<div class="q"><div class="tag">TEST 17</div><h4>Kate was listening to ___.</h4><div class="opts"><div class="opt">A) musics</div><div class="opt">B) music</div><div class="opt">C) a music</div><div class="opt">D) music’s</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) music.</b> <i>Music</i> жалпы мағынада uncountable noun, сондықтан A/AN қойылмайды.</div></div>
+</div>
+<div class="rule">
+<h3>16.3 Мағына өзгерсе, uncountable noun countable бола алады</h3>
+<p>Кейбір сөздер жалпы зат/ұғымды білдіргенде uncountable болады, ал <b>бір порция, бір зат, бір жағдай немесе бір тәжірибе</b> деген нақты мағынаға ауысқанда countable болып, A/AN ала алады.</p>
+<div class="examples"><div class="ex"><b>I like coffee.</b><span>Мен кофені ұнатамын. — жалпы сусын</span></div><div class="ex"><b>I'd like a coffee.</b><span>Маған бір кофе беріңіз. — бір порция/шыны</span></div><div class="ex"><b>Chicken is healthy.</b><span>Тауық еті пайдалы.</span></div><div class="ex"><b>There is a chicken in the garden.</b><span>Бақта бір тауық бар.</span></div><div class="ex"><b>I need some paper.</b><span>Маған қағаз керек.</span></div><div class="ex"><b>I read a paper about education.</b><span>Мен білім туралы бір мақала оқыдым.</span></div></div>
+<div class="q"><div class="tag">TEST 18</div><h4>At the café, I'd like ___ coffee, please.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) no word can be used</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Кафеде <b>a coffee</b> = бір порция/бір шыны кофе. Бұл жерде <i>coffee</i> countable мағынаға ауысқан.</div></div>
+</div>
+<div class="q"><div class="tag">TEST 19</div>
 <h4>When I went to Rome, I stayed with ___ Italian friend of mine.</h4>
 <div class="opts"><div class="opt">A) the</div><div class="opt">B) –</div><div class="opt">C) an</div><div class="opt">D) any</div><div class="opt">E) a</div></div>
 <button onclick="reveal(this)">Жауабы мен талдауы</button>
@@ -222,239 +590,322 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 
 </section>
 
+
+<div class="rule" id="aan-summary" style="border:2px solid #6f52ed;background:linear-gradient(180deg,#ffffff 0%,#f7f4ff 100%);">
+<h3>A/AN — ҚОРЫТЫНДЫ: қайда қолданылады, қайда қолданылмайды?</h3>
+<p>Бұл кестені A/AN бөлімінің соңғы <b>шпаргалкасы</b> ретінде қолдан. Ең бастысы: <b>A/AN тек жекеше саналатын зат есіммен</b> немесе сондай зат есім бар тіркеспен қолданылады.</p>
+
+<div class="cols">
+<div class="box"><h4>✓ A/AN ҚОЛДАНЫЛАДЫ</h4>
+<p><b>1. Singular countable noun</b><br>жекеше саналатын зат есім:<br><b>a book, an apple</b></p>
+<p><b>2. First mention</b><br>бірінші рет айтылғанда:<br><b>I saw a dog.</b></p>
+<p><b>3. One of many / non-specific</b><br>көптің ішіндегі біреу:<br><b>I need a pen.</b></p>
+<p><b>4. Profession / classification</b><br>мамандық, топқа жатқызу:<br><b>She is a doctor.</b><br><b>A whale is a mammal.</b></p>
+<p><b>5. Description</b><br>A/AN + adjective + noun:<br><b>a beautiful day</b></p>
+<p><b>6. A/AN = one</b><br><b>a hundred, a thousand</b></p>
+<p><b>7. Frequency / rate</b><br><b>twice a week</b><br><b>60 km an hour</b></p>
+<p><b>8. Кейбір illness expressions</b><br><b>a cold, a headache, a cough</b></p>
+<p><b>9. Exclamations</b><br><b>What a beautiful day!</b></p>
+<p><b>10. such / quite / rather</b><br><b>such a good idea</b><br><b>quite an interesting story</b></p>
+</div>
+
+<div class="box"><h4>✕ A/AN ҚОЛДАНЫЛМАЙДЫ</h4>
+<p><b>1. Plural nouns</b><br>көпше зат есім:<br>❌ <b>a books</b> → ✓ <b>books</b></p>
+<p><b>2. General uncountable nouns</b><br>жалпы мағынадағы саналмайтын зат есім:<br>❌ <b>an information</b> → ✓ <b>information</b><br>❌ <b>an advice</b> → ✓ <b>advice</b></p>
+<p><b>3. Possessive / demonstrative бар кезде</b><br>❌ <b>a my book</b> → ✓ <b>my book</b><br>❌ <b>the this car</b> → ✓ <b>this car</b></p>
+<p><b>4. Көптеген proper names алдында</b><br>❌ <b>a Kazakhstan</b> → ✓ <b>Kazakhstan</b><br>❌ <b>a John</b> → ✓ <b>John</b><br><span class="mini">Арнайы мағынадағы ерекшеліктер Names бөлімінде беріледі.</span></p>
+</div>
+
+<div class="box"><h4>⚠ ЕРЕКШЕ ЖАҒДАЙ</h4>
+<p><b>Uncountable noun-ды санасақ:</b><br>A/AN тікелей uncountable noun-ға емес, оның саналатын өлшеміне/ыдысына қойылады:</p>
+<p><b>a cup of tea</b> — бір кесе шай<br>
+<b>a glass of water</b> — бір стақан су<br>
+<b>a piece of advice</b> — бір кеңес<br>
+<b>a piece of information</b> — бір ақпарат бөлігі<br>
+<b>a slice of bread</b> — бір тілім нан</p>
+<p><b>Мағынасы өзгерсе countable болуы мүмкін:</b><br>
+<b>coffee</b> — кофе жалпы зат ретінде<br>
+<b>a coffee</b> — бір порция/бір шыны кофе</p>
+</div>
+</div>
+
+<div class="formula">Есте сақта: A/AN → singular + countable. &nbsp; A немесе AN таңдауы → келесі сөздің алғашқы ЕСТІЛЕТІН ДЫБЫСЫНА байланысты.</div>
+
+<div class="q"><div class="tag">TEST 20</div>
+<h4>Choose the correct sentence.</h4>
+<div class="opts">
+<div class="opt">A) She gave me an advice.</div>
+<div class="opt">B) She gave me a useful piece of advice.</div>
+<div class="opt">C) She gave me a useful advice.</div>
+<div class="opt">D) She gave me an useful piece of advice.</div>
+</div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>B) She gave me a useful piece of advice.</b> <i>Advice</i> — саналмайтын зат есім, сондықтан оған A/AN тікелей қойылмайды. <i>Piece</i> — саналатын зат есім. Ал article-ден кейін тұрған <i>useful</i> /j/ дауыссыз дыбысынан басталады → <b>a useful piece of advice</b>.</div>
+</div>
+</div>
+
 <section class="chapter" id="the">
 <h2>3. Definite Article — THE</h2>
-<p class="sub"><b>Definite</b> — белгілі, нақты. THE сөйлеуші мен тыңдаушы қай адам/зат туралы айтылып тұрғанын анықтай алатын кезде қолданылады.</p>
-
-<h3>1. Нақты, белгілі адам немесе зат</h3>
-<p>Әңгімеде қай адам немесе қай зат екені нақты болса, <b>THE</b> қолданылады.</p>
-<div class="examples"><b>Close the door.</b> — Есікті жап.<br><b>Where is the key?</b> — Кілт қайда?</div>
-
-<h3>2. Бұрын айтылған адам немесе зат</h3>
-<p>Алғашқы сөйлемде адам/зат таныстырылады. Кейін дәл сол адам/зат қайта айтылса, THE қолданылады.</p>
-<div class="examples">I saw <b>a woman</b>. <b>The woman</b> was wearing a red coat.<br>I bought <b>a book</b>. <b>The book</b> is very interesting.</div>
-
-<h3>3. Жағдайдан қай зат екені түсінікті</h3>
-<div class="examples">Turn off <b>the light</b>.<br>Open <b>the window</b>.</div>
-
-<h3>4. Бірегей немесе әлемде біреу деп қабылданатын нысандар</h3>
-<div class="examples"><b>the sun</b> · <b>the moon</b> · <b>the sky</b> · <b>the world</b></div>
-
-<h3>5. Superlative — ең жоғары дәреже</h3>
-<p><b>superlative — күшейтпелі шырай (ең...)</b> бірнеше адамды немесе затты салыстырғанда біреуінің қасиеті ең жоғары екенін көрсетеді: «ең жақсы», «ең үлкен», «ең маңызды». Осындай форма белгілі бір топтың ішінен біреуін ерекше бөліп көрсететіндіктен, оның алдында әдетте <b>THE</b> қолданылады.</p>
-<p>Мысалы, <b>the best student in the class</b> — сыныптағы ең жақсы оқушы. Біз кез келген жақсы оқушыны емес, сол топтағы ең жоғары нәтиже көрсеткен нақты оқушыны айтып тұрмыз.</p>
-<div class="examples">She is <b>the best student</b> in the class.<br>This is <b>the most interesting book</b>.</div>
-
-<h3>6. Ordinal numbers — реттік сандар</h3>
-<p><b>Ordinal numbers</b> заттың ретін көрсетеді: first — бірінші, second — екінші, third — үшінші. Рет белгілі бір позицияны нақтылап тұрғандықтан, мұндай құрылымдарда <b>THE</b> жиі қолданылады: <b>the first day, the second chapter, the third question</b>.</p>
-<div class="examples"><b>the first day</b><br><b>the second chapter</b><br><b>the last question</b></div>
-
-<h3>7. THE + only / same</h3>
-<div class="examples"><b>the only answer</b><br><b>the same problem</b><br>We study at <b>the same university</b>.</div>
-
-<h3>8. THE + adjective — сын есім = адамдар тобы</h3>
-<div class="examples"><b>the rich</b> — бай адамдар<br><b>the poor</b> — кедей адамдар<br><b>the elderly</b> — егде адамдар</div>
-
-<h3>9. Музыкалық аспаптар</h3>
-<p>Музыкалық аспапта ойнау қабілеті немесе әрекеті туралы айтқанда дәстүрлі құрылымда <b>play + the + instrument</b> қолданылады.</p>
-<div class="examples">play <b>the piano</b> — пианинода ойнау<br>play <b>the guitar</b> — гитарада ойнау<br>play <b>the violin</b> — скрипкада ойнау</div>
-
-<h3>10. Нақты plural және uncountable noun — саналмайтын зат есім</h3>
-<p>THE тек жекеше сөзбен ғана қолданылмайды. Нақты белгілі болса, көпше және саналмайтын зат есіммен де қолданылады.</p>
-<div class="examples"><b>The students</b> in this room are ready.<br><b>The water</b> in this bottle is cold.</div>
-
-<h3>11. Кейбір уақыт тіркестері</h3>
-<div class="examples">in <b>the morning</b><br>in <b>the afternoon</b><br>in <b>the evening</b></div>
-
-<div class="q"><div class="tag">TEST 04</div><h4>I think your glasses are in ___ kitchen.</h4><div class="opts"><div class="opt">A) the</div><div class="opt">B) –</div><div class="opt">C) an</div><div class="opt">D) a</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) the</b>. Контексте белгілі бір үйдің/орынның асүйі меңзеледі: <b>the kitchen</b>.</div></div>
-
-<div class="q"><div class="tag">TEST 05</div><h4>This is ___ room in our house.</h4><div class="opts"><div class="opt">A) smallest</div><div class="opt">B) the smallest</div><div class="opt">C) the most small</div><div class="opt">D) smaller</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) the smallest.</b> Smallest — superlative, сондықтан бұл құрылымда THE қолданылады.</div></div>
+<p class="sub"><b>THE — белгілілік артиклі.</b> Ол сөйлеуші мен тыңдаушы <b>нақты қай адам, зат немесе топ туралы</b> айтылып тұрғанын анықтай алғанда қолданылады. A/AN сияқты THE заттың саналатынына ғана тәуелді емес: THE жекеше, көпше және саналмайтын зат есімдермен де келе алады.</p>
 
 
-<div class="q"><div class="tag">TEST 06</div>
-<h4>___ are famous for their wines and cooking.</h4>
-<div class="opts"><div class="opt">A) The French</div><div class="opt">B) Frenchmen</div><div class="opt">C) a French people</div><div class="opt">D) French</div><div class="opt">E) France</div></div>
+<div class="rule">
+<h3>1. Нақты қай адам/зат екені белгілі — known / specific / context</h3>
+<p><b>THE-нің негізгі ережесі:</b> тыңдаушы <b>нақты қай адам немесе қай зат</b> туралы айтылып тұрғанын түсіне алса, THE қолданылады. Ол затты осы мәтінде бұрын айту міндетті емес. Қайсысы екені тұрған жағдайдан немесе ортақ контекстен түсінікті болуы мүмкін.</p>
+<div class="formula">THE + known / specific noun = нақты қайсысы екені белгілі</div>
+<div class="examples">
+<div class="ex"><b>Close the door.</b><span>Есікті жап. — Қай есік екені осы жағдайдан түсінікті.</span></div>
+<div class="ex"><b>Open the window.</b><span>Терезені аш. — Осы жердегі белгілі терезе меңзеліп тұр.</span></div>
+<div class="ex"><b>Please pass me the salt.</b><span>Маған тұзды бере салшы. — Үстелдегі белгілі тұз.</span></div>
+<div class="ex"><b>I think your glasses are in the kitchen.</b><span>Көзілдірігің асүйде деп ойлаймын. — Белгілі үйдің асүйі.</span></div>
+</div>
+<div class="note"><b>Есте сақта:</b> «Тыңдаушы нақты қайсысы екенін түсіне ме?» → Иә болса, THE қолданылуы мүмкін.</div>
+<div class="q"><div class="tag">TEST 21</div>
+<h4>I think your glasses are in ___ kitchen.</h4>
+<div class="opts"><div class="opt">A) the</div><div class="opt">B) –</div><div class="opt">C) an</div><div class="opt">D) a</div></div>
 <button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>A) The French.</b> <b>the + nationality adjective — сын есім</b> тұтас халық тобын білдіре алады: <i>the French</i>.</div></div>
+<div class="answer"><b>A) the.</b> Белгілі бір үйдің асүйі меңзеліп тұр. Тыңдаушы қай kitchen екенін контекстен түсінеді → <b>the kitchen</b>.</div>
+</div>
+</div>
+<div class="rule"><h3>2. Бұрын айтылған адам немесе зат — second mention</h3>
+<p>Адам немесе зат әңгіменің басында алғаш рет белгісіз болса, әдетте A/AN қолданылады. Сол <b>адам/зат екінші рет қайталанса</b>, ол енді тыңдаушыға белгілі болды, сондықтан THE қолданылады.</p>
+<div class="formula">FIRST MENTION: A/AN → SECOND MENTION: THE</div>
+<div class="examples">
+<div class="ex"><b>I saw a woman. The woman was wearing a red coat.</b><span>Мен бір әйелді көрдім. Әлгі әйел қызыл пальто киіп алған екен.</span></div>
+<div class="ex"><b>I bought a book. The book is very interesting.</b><span>Мен бір кітап сатып алдым. Сол кітап өте қызық.</span></div>
+<div class="ex"><b>We found a hotel. The hotel was near the station.</b><span>Біз бір қонақүй таптық. Сол қонақүй вокзалдың жанында болды.</span></div>
+</div>
+<div class="q"><div class="tag">TEST 22</div><h4>I bought a book yesterday. ___ book is very interesting.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) The.</b> Бірінші сөйлемде <i>a book</i> деп алғаш таныстырылды. Екінші сөйлемдегі book — дәл сол кітап → <b>the book</b>.</div></div></div>
 
-<div class="q"><div class="tag">TEST 07</div>
-<h4>___ sun is a star. It gives us light and warmth.</h4>
-<div class="opts"><div class="opt">A) the</div><div class="opt">B) –</div><div class="opt">C) it</div><div class="opt">D) an</div><div class="opt">E) a</div></div>
-<button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>A) the.</b> <i>Sun</i> бұл контексте бірегей нысан ретінде берілген: <b>the sun</b>.</div></div>
+<div class="rule"><h3>3. Бірегей нысандар — unique things</h3>
+<p>Контексте <b>біреу ғана деп қабылданатын</b> нысандардың алдында THE жиі қолданылады.</p>
+<div class="examples">
+<div class="ex"><b>the sun</b><span>күн</span></div><div class="ex"><b>the moon</b><span>ай</span></div>
+<div class="ex"><b>the sky</b><span>аспан</span></div><div class="ex"><b>the world</b><span>әлем</span></div>
+</div>
+<div class="q"><div class="tag">TEST 23</div><h4>___ sun is a star. It gives us light and warmth.</h4><div class="opts"><div class="opt">A) The</div><div class="opt">B) –</div><div class="opt">C) An</div><div class="opt">D) A</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) The.</b> Бұл контексте Sun бірегей нысан ретінде қабылданады → <b>the sun</b>.</div></div></div>
 
-<div class="q"><div class="tag">TEST 08</div>
-<h4>Can you turn on ___ radio, please? I want to listen to some music.</h4>
-<div class="opts"><div class="opt">A) the</div><div class="opt">B) –</div><div class="opt">C) a</div><div class="opt">D) those</div><div class="opt">E) an</div></div>
-<button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>A) the.</b> Берілген жағдаятта тыңдаушы қай radio туралы айтылғанын түсінеді; қалыпты тіркес — <b>turn on the radio</b>.</div></div>
+<div class="rule"><h3>4. Superlative — күшейтпелі шырай: ең...</h3>
+<p><b>Superlative — күшейтпелі шырай</b> топтың ішіндегі ең жоғары/ең төмен дәрежені көрсетеді: <i>best — ең жақсы, biggest — ең үлкен, most interesting — ең қызық</i>. Бір нысанды топтан ерекше бөліп тұрғандықтан, алдында THE қолданылады.</p>
+<div class="formula">THE + superlative adjective</div>
+<div class="examples"><div class="ex"><b>the best student</b><span>ең жақсы студент</span></div><div class="ex"><b>the smallest room</b><span>ең кішкентай бөлме</span></div><div class="ex"><b>the most interesting book</b><span>ең қызық кітап</span></div></div>
+<div class="q"><div class="tag">TEST 24</div><h4>This is ___ room in our house.</h4><div class="opts"><div class="opt">A) smallest</div><div class="opt">B) the smallest</div><div class="opt">C) the most small</div><div class="opt">D) smaller</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) the smallest.</b> <i>Smallest</i> — superlative, сондықтан <b>the smallest room</b>.</div></div></div>
 
-<div class="q"><div class="tag">TEST 09</div>
-<h4>Write your name at ___.</h4>
-<div class="opts"><div class="opt">A) the page of top</div><div class="opt">B) top of page</div><div class="opt">C) the top page</div><div class="opt">D) the top of the page</div></div>
-<button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>D) the top of the page.</b> Қалыпты құрылым: <b>at the top of + noun</b>. Мұнда page те нақты бет ретінде беріліп тұр: <b>the page</b>.</div></div>
+<div class="rule"><h3>5. Ordinal numbers — реттік сандар</h3>
+<p><b>Ordinal number — реттік сан:</b> first — бірінші, second — екінші, third — үшінші. Ол нақты позицияны көрсететіндіктен THE жиі қолданылады.</p>
+<div class="formula">THE + first / second / third / ...</div>
+<div class="examples"><div class="ex"><b>the first day</b><span>бірінші күн</span></div><div class="ex"><b>the second chapter</b><span>екінші тарау</span></div><div class="ex"><b>the third question</b><span>үшінші сұрақ</span></div></div>
+<div class="q"><div class="tag">TEST 25</div><h4>Coffee is ___ most widely traded commodity after oil.</h4><div class="opts"><div class="opt">A) the second</div><div class="opt">B) a second</div><div class="opt">C) two</div><div class="opt">D) second</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) the second.</b> <i>Second</i> — реттік сан → <b>the second</b>.</div></div></div>
 
-<div class="q"><div class="tag">TEST 10</div>
-<h4>Coffee now is ___ widely traded commodity after oil.</h4>
-<div class="opts"><div class="opt">A) the second</div><div class="opt">B) a second</div><div class="opt">C) two</div><div class="opt">D) second</div></div>
-<button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>A) the second.</b> <i>Second</i> — ordinal number (реттік сан). Реттік сан белгілі позицияны көрсетеді, сондықтан <b>the second</b>.</div></div>
+<div class="rule"><h3>6. THE + only / same</h3>
+<p><b>Only — жалғыз/бір ғана</b>, <b>same — бірдей/дәл сол</b>. Бұл сөздер нысанды нақтылап көрсетеді, сондықтан әдетте THE қолданылады.</p>
+<div class="examples"><div class="ex"><b>the only answer</b><span>жалғыз дұрыс жауап</span></div><div class="ex"><b>the same problem</b><span>дәл сол мәселе</span></div><div class="ex"><b>We study at the same university.</b><span>Біз бір университетте оқимыз.</span></div></div>
+<div class="q"><div class="tag">TEST 26</div><h4>We have ___ same problem.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> Қалыпты құрылым — <b>the same</b>.</div></div></div>
 
-<div class="q"><div class="tag">TEST 11</div>
-<h4>___ Prime Minister is ___ most important person in ___ British government.</h4>
-<div class="opts"><div class="opt">A) the / – / –</div><div class="opt">B) The / the / –</div><div class="opt">C) The / the / the</div><div class="opt">D) – / – / the</div></div>
-<button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>Пробныйдағы күтілетін нұсқа: B) The / the / –.</b> <i>the Prime Minister</i> — нақты лауазым; <i>the most important</i> — superlative. Бірақ қазіргі ағылшын тілінде <i>the British government</i> де қалыпты қолданыс, сондықтан бұл тапсырманың үшінші бос орны контекстсіз мінсіз емес. Оны ереже жаттауға емес, даулы тест формулировкасын талдауға қолданамыз.</div></div>
-<details><summary>Қорытынды — THE қашан қолданылады?</summary><div>✓ нақты/белгілі зат<br>✓ бұрын айтылған зат<br>✓ контекстен белгілі зат<br>✓ unique objects<br>✓ superlatives<br>✓ ordinal numbers<br>✓ the only / the same<br>✓ the + adjective — сын есім (адамдар тобы)<br>✓ musical instruments<br>✓ specific — нақты plural/uncountable nouns<br>✓ кейбір тұрақты тіркестер</div></details>
+<div class="rule"><h3>7. THE + adjective — сын есім арқылы адамдар тобын атау</h3>
+<p>Кейбір сын есімдердің алдына THE қойылып, сол қасиетке ие <b>адамдар тобы тұтас</b> аталады. Мұндай форма көпше мағына береді.</p>
+<div class="examples"><div class="ex"><b>the rich</b><span>бай адамдар</span></div><div class="ex"><b>the poor</b><span>кедей адамдар</span></div><div class="ex"><b>the elderly</b><span>егде адамдар</span></div><div class="ex"><b>the French</b><span>француз халқы / француздар</span></div></div>
+<div class="q"><div class="tag">TEST 27</div><h4>___ are famous for their wines and cooking.</h4><div class="opts"><div class="opt">A) The French</div><div class="opt">B) A French</div><div class="opt">C) The France</div><div class="opt">D) French</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) The French.</b> <b>the + nationality adjective</b> тұтас халық тобын білдіреді.</div></div></div>
 
+<div class="rule"><h3>8. Музыкалық аспаптар — musical instruments</h3>
+<p>Музыкалық аспапта ойнау туралы дәстүрлі жалпы құрылымда <b>play + the + instrument</b> қолданылады.</p>
+<div class="examples"><div class="ex"><b>play the piano</b><span>пианинода ойнау</span></div><div class="ex"><b>play the guitar</b><span>гитарада ойнау</span></div><div class="ex"><b>play the violin</b><span>скрипкада ойнау</span></div></div>
+<div class="q"><div class="tag">TEST 28</div><h4>She can play ___ piano very well.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> Аспапта ойнау құрылымы: <b>play the piano</b>.</div></div></div>
+
+<div class="rule"><h3>9. Нақты plural және uncountable nouns</h3>
+<p>THE тек жекеше зат есіммен емес. Егер қай топ немесе қай зат екені нақты болса, <b>plural noun — көпше зат есіммен</b> және <b>uncountable noun — саналмайтын зат есіммен</b> де қолданылады.</p>
+<div class="examples"><div class="ex"><b>The students in this room are ready.</b><span>Осы бөлмедегі студенттер дайын.</span></div><div class="ex"><b>The water in this bottle is cold.</b><span>Осы бөтелкедегі су салқын.</span></div><div class="ex"><b>The music in this film is beautiful.</b><span>Осы фильмдегі музыка әдемі.</span></div></div>
+<div class="q"><div class="tag">TEST 29</div><h4>___ water in this bottle is cold.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) The.</b> Water саналмайтын болғанымен, <i>in this bottle</i> оны нақтылап тұр → <b>the water</b>.</div></div></div>
+
+<div class="rule"><h3>10. Кейбір уақыт тіркестері — parts of the day</h3>
+<p>Күннің кейбір бөліктерімен қалыптасқан тіркестерде THE қолданылады.</p>
+<div class="examples"><div class="ex"><b>in the morning</b><span>таңертең</span></div><div class="ex"><b>in the afternoon</b><span>түстен кейін</span></div><div class="ex"><b>in the evening</b><span>кешке</span></div></div>
+<div class="note"><b>Назар аудар:</b> <b>at night</b> — түнде деген қалыптасқан тіркесте THE жоқ. Бұл айырмашылық Zero Article бөлімінде де қайталанады.</div>
+<div class="q"><div class="tag">TEST 30</div><h4>I usually study ___ evening.</h4><div class="opts"><div class="opt">A) in a</div><div class="opt">B) in an</div><div class="opt">C) in the</div><div class="opt">D) at the</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) in the.</b> Қалыптасқан тіркес — <b>in the evening</b>.</div></div></div>
+
+<div class="rule" style="border:2px solid #6f52ed;background:linear-gradient(180deg,#fff 0%,#f7f4ff 100%)">
+<h3>THE — ҚОРЫТЫНДЫ: қайда қолданылады?</h3>
+<div class="cols">
+<div class="box"><h4>THE ҚОЛДАНЫЛАДЫ</h4><p>✓ нақты/белгілі адам немесе зат<br>✓ бұрын айтылған зат<br>✓ жағдайдан белгілі зат<br>✓ бірегей нысандар<br>✓ superlative<br>✓ ordinal numbers<br>✓ the only / the same<br>✓ the + adjective = адамдар тобы<br>✓ музыкалық аспаптар<br>✓ нақты plural/uncountable nouns<br>✓ in the morning/afternoon/evening</p></div>
+<div class="box"><h4>A/AN-МЕН САЛЫСТЫР</h4><p><b>I saw a dog.</b><br><span class="mini">бір ит — алғаш рет, белгісіз</span></p><p><b>The dog followed me.</b><br><span class="mini">сол ит — енді белгілі</span></p><p><b>a book</b> — бір белгісіз кітап<br><b>the book</b> — нақты/белгілі кітап</p></div>
+<div class="box"><h4>ЕСТЕ САҚТА</h4><p>THE-нің негізгі сұрағы: <b>«Тыңдаушы нақты қайсысы екенін біле ме?»</b></p><p>Иә → THE болуы мүмкін.<br>Жоқ, бір белгісіз жекеше саналатын зат → A/AN болуы мүмкін.<br>Жалпы мағына → Zero Article болуы мүмкін.</p></div>
+</div>
+<div class="formula">THE = definite / specific / known — белгілі, нақты</div>
+<div class="q"><div class="tag">TEST 31</div><h4>I saw a man near the station. ___ man was carrying a black bag.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) The.</b> Бірінші сөйлемде <i>a man</i> алғаш рет айтылды. Екінші сөйлемде дәл сол адам қайталанып тұр → <b>the man</b>.</div></div>
+</div>
 </section>
 
 <section class="chapter" id="zero">
 <h2>4. Zero Article — Ø</h2>
-<p class="sub">Zero Article — зат есімнің алдында A, AN немесе THE қолданылмайтын жағдай.</p>
-
-<h3>1. Plural nouns — жалпы мағынада</h3>
-<div class="examples"><b>Dogs</b> are friendly animals.<br><b>Books</b> can be expensive.</div>
-
-<h3>2. Uncountable nouns — жалпы мағынада</h3>
-<div class="examples"><b>Water</b> is important.<br>I like <b>music</b>.<br><b>Information</b> is useful.</div>
-
-<h3>3. Languages — тіл атаулары</h3><p>Тіл атауын жалпы мағынада айтқанда article қолданылмайды.</p><div class="examples"><div class="ex"><b>speak English</b><span>ағылшын тілінде сөйлеу</span></div><div class="ex"><b>learn Italian</b><span>итальян тілін үйрену</span></div><div class="ex"><b>study Kazakh</b><span>қазақ тілін оқу</span></div></div>
-<h3>4. School subjects — оқу пәндері</h3><p>Пән атауы жалпы оқу пәні ретінде қолданылса, Ø article келеді.</p><div class="examples"><div class="ex"><b>study history</b><span>тарих оқу</span></div><div class="ex"><b>learn mathematics</b><span>математика оқу</span></div><div class="ex"><b>study biology</b><span>биология оқу</span></div></div>
-<h3>5. Sports and games — спорт пен ойын атаулары</h3><p>Спорт пен ойын атауларын play/do сияқты етістіктермен жалпы мағынада қолданғанда article қойылмайды.</p><div class="examples"><div class="ex"><b>play football</b><span>футбол ойнау</span></div><div class="ex"><b>play tennis</b><span>теннис ойнау</span></div><div class="ex"><b>play chess</b><span>шахмат ойнау</span></div></div>
-<h3>6. Meals — тамақтану атаулары</h3><p>Breakfast, lunch, dinner күнделікті тамақтану атауы ретінде Ø article-мен келеді. Нақты немесе сипатталған meal болса, кейінгі арнайы бөлімде A/THE айырмасын көреміз.</p><div class="examples"><div class="ex"><b>have breakfast</b><span>таңғы ас ішу</span></div><div class="ex"><b>have lunch</b><span>түскі ас ішу</span></div><div class="ex"><b>have dinner</b><span>кешкі ас ішу</span></div></div>
-<h3>7. Days & months — апта күндері мен айлар</h3><p>Кәдімгі күн және ай атауларының алдында article болмайды.</p><div class="examples"><div class="ex"><b>on Monday</b><span>дүйсенбіде</span></div><div class="ex"><b>in October</b><span>қазанда</span></div><div class="ex"><b>in May</b><span>мамырда</span></div></div>
-<h3>8. By + transport — көлікпен жүру</h3><p><b>by + көлік түрі</b> «қандай көлікпен?» деген жалпы тәсілді білдіргенде article қойылмайды.</p><div class="examples"><div class="ex"><b>by car</b><span>көлікпен</span></div><div class="ex"><b>by bus</b><span>автобуспен</span></div><div class="ex"><b>by train</b><span>пойызбен</span></div><div class="ex"><b>by underground</b><span>метромен</span></div></div><div class="note"><b>Салыстыр:</b> <b>by bus</b> — автобуспен жүру тәсілі; <b>on the bus</b> — нақты автобустың ішінде/үстінде.</div>
-
-<div class="q"><div class="tag">TEST 12</div><h4>You can get to Heathrow Airport by ___ underground.</h4><div class="opts"><div class="opt">A) the</div><div class="opt">B) a</div><div class="opt">C) an</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>D) –.</b> By + transport құрылымында article қолданылмайды: by car, by bus, by train, by underground.</div></div>
-
-<h3>9. Home / work / bed</h3>
-<div class="examples">go <b>home</b><br>be at <b>home</b><br>go to <b>work</b><br>be at <b>work</b><br>go to <b>bed</b></div>
-
-<h3>10. institution — мекеме/институционалдық қызмет: негізгі қызметі бойынша</h3>
-<p>School, prison, hospital, university сияқты орындар кейде ғимарат ретінде емес, өзінің негізгі қызметі мағынасында айтылғанда article алмайды.</p>
-<div class="examples">go to <b>school</b> — оқушы ретінде мектепке бару<br>go to <b>the school</b> — нақты мектеп ғимаратына бару<br><br>go to <b>bed</b> — ұйықтауға жату<br>sit on <b>the bed</b> — нақты кереуеттің үстінде отыру</div>
-
-<h3>11. Possessives және demonstratives-пен article қойылмайды</h3>
-<div class="examples"><b>my book ✓</b> — the my book ✗<br><b>this car ✓</b> — the this car ✗<br><b>her friend ✓</b> — a her friend ✗</div>
-
-
-<div class="q"><div class="tag">TEST 13</div>
-<h4>I live in ___ Abai Street.</h4>
-<div class="opts"><div class="opt">A) one</div><div class="opt">B) an</div><div class="opt">C) –</div><div class="opt">D) a</div><div class="opt">E) the</div></div>
+<p class="sub"><b>Zero Article (Ø) — артикльдің болмауы.</b> Бұл кездейсоқ емес: белгілі жағдайларда зат есімнің алдында A, AN немесе THE қолданылмайды. Төменде әр жағдай жеке ереже ретінде берілген.</p>
+<div class="formula">Ø = noun алдында A / AN / THE жоқ</div>
+<div class="rule">
+<h3>1. Plural nouns — көпше зат есім жалпы мағынада</h3>
+<p>Егер көпше зат есім <b>бір нақты топты емес, бүкіл классты жалпы мағынада</b> білдірсе, article қолданылмайды.</p>
+<div class="examples"><div class="ex"><b>Dogs need exercise.</b><span>Иттерге қимыл-қозғалыс қажет. — Иттер жалпы.</span></div><div class="ex"><b>Books can be expensive.</b><span>Кітаптар қымбат болуы мүмкін. — Кітаптар жалпы.</span></div><div class="ex"><b>Students use dictionaries.</b><span>Студенттер сөздік қолданады. — Нақты бір студенттер тобы емес.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Нақты топ болса THE келеді: <b>Students</b> need books — студенттер жалпы; <b>The students in this room</b> are ready — осы бөлмедегі нақты студенттер.</div>
+<div class="q"><div class="tag">TEST 32</div><h4>___ need regular exercise.</h4>
+<div class="opts"><div class="opt">A) Dogs</div><div class="opt">B) The dogs</div><div class="opt">C) A dogs</div><div class="opt">D) A dog</div></div>
 <button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>C) –.</b> Көше атауы <b>Abai Street</b> алдында бұл қолданыста article қойылмайды.</div></div>
-
-<div class="q"><div class="tag">TEST 14</div>
-<h4>Do you have ___ eggs?</h4>
-<div class="opts"><div class="opt">A) an</div><div class="opt">B) –</div><div class="opt">C) a</div><div class="opt">D) the</div></div>
+<div class="answer"><b>A) Dogs.</b> Жалпы мағынадағы plural noun → Ø.</div></div>
+</div><div class="rule">
+<h3>2. Uncountable nouns — саналмайтын зат есім жалпы мағынада</h3>
+<p>Water, music, information, advice сияқты <b>uncountable noun — саналмайтын зат есім</b> жалпы мағынада айтылса, article қолданылмайды.</p>
+<div class="examples"><div class="ex"><b>Water is important.</b><span>Су маңызды. — Су жалпы.</span></div><div class="ex"><b>I like music.</b><span>Мен музыканы жақсы көремін. — Музыка жалпы.</span></div><div class="ex"><b>Information is useful.</b><span>Ақпарат пайдалы. — Ақпарат жалпы.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Нақтылап көрсетілсе THE болуы мүмкін: <b>Water is important</b> — су жалпы; <b>the water in this bottle</b> — осы бөтелкедегі нақты су.</div>
+<div class="q"><div class="tag">TEST 33</div><h4>I like ___ music.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
 <button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>B) –</b> — тесттің күтілетін жауабы. <i>Eggs</i> көпше түрде және сөйлемде нақты бір алдын ала белгілі жұмыртқалар көрсетілмеген. <b>A/AN</b> plural noun — көпше зат есім-пен қолданылмайды. Контекст өзгерсе, <i>the eggs</i> те мүмкін болатынын есте сақта.</div></div>
-
-<div class="q"><div class="tag">TEST 15</div>
-<h4>Enjoy your holiday! I hope you will be there when ___.</h4>
-<div class="opts"><div class="opt">A) a good weather</div><div class="opt">B) the weather is good</div><div class="opt">C) there is some good weather</div><div class="opt">D) in any good weather</div></div>
+<div class="answer"><b>D) –.</b> Music жалпы мағынадағы uncountable noun → Ø.</div></div>
+</div><div class="rule">
+<h3>3. Languages — тіл атаулары</h3>
+<p>English, Kazakh, Italian сияқты <b>тіл атаулары жалпы тіл ретінде</b> қолданылса, article қойылмайды.</p>
+<div class="examples"><div class="ex"><b>She speaks English.</b><span>Ол ағылшын тілінде сөйлейді.</span></div><div class="ex"><b>They are learning Italian.</b><span>Олар итальян тілін үйреніп жүр.</span></div><div class="ex"><b>I study Kazakh.</b><span>Мен қазақ тілін оқимын.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Тілдің нақты бір түрі/нұсқасы анықталса THE келуі мүмкін: <b>the English used in this book</b> — осы кітапта қолданылған ағылшын тілі.</div>
+<div class="q"><div class="tag">TEST 34</div><h4>She speaks ___ English very well.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
 <button onclick="reveal(this)">Жауабы мен талдауы</button>
-<div class="answer"><b>B) the weather is good</b> — тесттегі табиғи толық құрылым. <i>Weather</i> әдетте uncountable noun — саналмайтын зат есім, сондықтан <b>a good weather</b> болмайды. Бұл сұрақ article-мен қатар sentence structure-ді де тексереді.</div></div>
-<details><summary>Қорытынды — Ø қашан жиі кездеседі?</summary><div>✓ general — жалпы plural<br>✓ general — жалпы uncountable<br>✓ languages<br>✓ subjects<br>✓ sports/games<br>✓ meals<br>✓ days/months<br>✓ by + transport<br>✓ home/work/bed тіркестері<br>✓ institution — мекеме/институционалдық қызмет негізгі қызмет мағынасында<br>✓ possessive/demonstrative determiner бар кезде</div></details>
-
+<div class="answer"><b>D) –.</b> English — тіл атауы жалпы мағынада → Ø.</div></div>
+</div><div class="rule">
+<h3>4. School subjects — оқу пәндері</h3>
+<p>History, mathematics, biology сияқты <b>пән атаулары</b> жалпы оқу пәні ретінде қолданылса, article қойылмайды.</p>
+<div class="examples"><div class="ex"><b>I study history.</b><span>Мен тарих оқимын.</span></div><div class="ex"><b>She likes mathematics.</b><span>Ол математиканы жақсы көреді.</span></div><div class="ex"><b>Biology is difficult for me.</b><span>Биология мен үшін қиын.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Бұл жерде пәннің атауы айтылып тұр. Нақты бір курс/материал ерекше анықталса, контекстке қарай article өзгеруі мүмкін.</div>
+<div class="q"><div class="tag">TEST 35</div><h4>___ Mathematics is my favourite subject.</h4>
+<div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Mathematics жалпы оқу пәні → Ø.</div></div>
+</div><div class="rule">
+<h3>5. Sports and games — спорт пен ойын атаулары</h3>
+<p>Football, tennis, chess сияқты спорт пен ойын атаулары <b>жалпы әрекет</b> ретінде қолданылса, article болмайды.</p>
+<div class="examples"><div class="ex"><b>They play football.</b><span>Олар футбол ойнайды.</span></div><div class="ex"><b>She plays tennis.</b><span>Ол теннис ойнайды.</span></div><div class="ex"><b>We play chess after class.</b><span>Біз сабақтан кейін шахмат ойнаймыз.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Музыкалық аспаппен шатастырма: <b>play football / play tennis</b>, бірақ дәстүрлі құрылымда <b>play the piano / play the violin</b>.</div>
+<div class="q"><div class="tag">TEST 36</div><h4>They often play ___ tennis.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Tennis — спорт атауы → Ø.</div></div>
+</div><div class="rule">
+<h3>6. Meals — тамақтану атаулары</h3>
+<p>Breakfast, lunch, dinner, supper сөздері <b>күнделікті тамақтану атауы</b> ретінде қолданылса, article болмайды.</p>
+<div class="examples"><div class="ex"><b>We have breakfast at seven.</b><span>Біз таңғы асты жетіде ішеміз.</span></div><div class="ex"><b>Let's have lunch.</b><span>Түскі ас ішейік.</span></div><div class="ex"><b>They had dinner together.</b><span>Олар кешкі асты бірге ішті.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Нақты meal болса THE: <b>the dinner we had yesterday</b> — кеше ішкен нақты кешкі ас. Сипатталған ерекше meal кейде A/AN алады: <b>a wonderful dinner</b>.</div>
+<div class="q"><div class="tag">TEST 37</div><h4>We usually have ___ breakfast at 8.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Breakfast күнделікті meal атауы ретінде қолданылған → Ø.</div></div>
+</div><div class="rule">
+<h3>7. Days and months — апта күндері мен айлар</h3>
+<p>Monday, Tuesday, January, October сияқты <b>күндер мен айлардың кәдімгі атаулары</b> алдында article қолданылмайды.</p>
+<div class="examples"><div class="ex"><b>See you on Monday.</b><span>Дүйсенбіде кездесеміз.</span></div><div class="ex"><b>My exam is in October.</b><span>Менің емтиханым қазанда.</span></div><div class="ex"><b>We arrived in May.</b><span>Біз мамырда келдік.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Бұл негізгі ереже күн/ай атауының кәдімгі қолданысына қатысты.</div>
+<div class="q"><div class="tag">TEST 38</div><h4>We will meet on ___ Monday.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Monday — апта күнінің атауы → Ø.</div></div>
+</div><div class="rule">
+<h3>8. By + transport — көлікпен жүру тәсілі</h3>
+<p><b>by + transport</b> құрылымы «қандай көлікпен?» деген жүру тәсілін білдірсе, көлік атауы article-сіз келеді.</p><div class="formula">BY + transport → Ø</div>
+<div class="examples"><div class="ex"><b>by car</b><span>көлікпен</span></div><div class="ex"><b>by bus</b><span>автобуспен</span></div><div class="ex"><b>by train</b><span>пойызбен</span></div><div class="ex"><b>by underground</b><span>метромен</span></div></div>
+<div class="note"><b>Назар аудар:</b> Салыстыр: <b>by bus</b> — автобуспен, көлік тәсілі; <b>on the bus</b> — нақты автобуста.</div>
+<div class="q"><div class="tag">TEST 39</div><h4>You can get to Heathrow Airport by ___ underground.</h4>
+<div class="opts"><div class="opt">A) the</div><div class="opt">B) a</div><div class="opt">C) an</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> <b>by + means of transport</b> → Ø: by underground.</div></div>
+</div><div class="rule">
+<h3>9. Home / work / bed — қалыптасқан тіркестер</h3>
+<p>Home, work, bed сөздері кейбір <b>қалыптасқан мағынада</b> article-сіз қолданылады.</p>
+<div class="examples"><div class="ex"><b>go home</b><span>үйге қайту</span></div><div class="ex"><b>be at home</b><span>үйде болу</span></div><div class="ex"><b>go to work</b><span>жұмысқа бару</span></div><div class="ex"><b>be at work</b><span>жұмыста болу</span></div><div class="ex"><b>go to bed</b><span>ұйықтауға жату</span></div></div>
+<div class="note"><b>Назар аудар:</b> <b>go home</b> дейміз, *go to home* емес. Bed нақты жиһаз ретінде айтылса THE болуы мүмкін: <b>The cat is under the bed.</b></div>
+<div class="q"><div class="tag">TEST 40</div><h4>After work I usually go ___.</h4>
+<div class="opts"><div class="opt">A) to home</div><div class="opt">B) the home</div><div class="opt">C) home</div><div class="opt">D) a home</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) home.</b> Қалыптасқан тіркес — <b>go home</b>.</div></div>
+</div><div class="rule">
+<h3>10. School / university / prison / church — негізгі қызметі бойынша</h3>
+<p>School, college, university, prison, church сияқты орындар <b>өзінің негізгі мақсаты немесе қызметі бойынша</b> айтылса, article түсіп қалуы мүмкін. Ал нақты ғимараттың өзін айтсақ, THE қолданылады.</p>
+<div class="examples"><div class="ex"><b>Children go to school every day.</b><span>Балалар күн сайын мектепке оқуға барады.</span></div><div class="ex"><b>He is in prison.</b><span>Ол түрмеде жазасын өтеп жатыр.</span></div><div class="ex"><b>She is at university.</b><span>Ол университетте оқиды.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Салыстыр: <b>go to school</b> = оқуға бару; <b>go to the school</b> = нақты мектеп ғимаратына бару.</div>
+<div class="q"><div class="tag">TEST 41</div><h4>The children go to ___ school every weekday.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> School өзінің негізгі қызметі — оқу — бойынша қолданылған → Ø.</div></div>
+</div><div class="rule">
+<h3>11. Parts of the day — кейбір уақыт тіркестері</h3>
+<p>Кейбір уақыт тіркестері article-сіз қалыптасқан: <b>at night, at dawn, at sunrise, before midnight</b>.</p>
+<div class="examples"><div class="ex"><b>at night</b><span>түнде</span></div><div class="ex"><b>at dawn</b><span>таңсәріде</span></div><div class="ex"><b>at sunrise</b><span>күн шыққанда</span></div><div class="ex"><b>before midnight</b><span>түн ортасына дейін</span></div></div>
+<div class="note"><b>Назар аудар:</b> Салыстыр: <b>in the morning / in the afternoon / in the evening</b>, бірақ <b>at night</b>.</div>
+<div class="q"><div class="tag">TEST 42</div><h4>We don't usually go out ___ night.</h4>
+<div class="opts"><div class="opt">A) in the</div><div class="opt">B) at</div><div class="opt">C) at the</div><div class="opt">D) in</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>B) at.</b> Қалыптасқан тіркес — <b>at night</b>; article жоқ.</div></div>
+</div><div class="rule">
+<h3>12. Possessives / demonstratives — my, your, this, that бар кезде</h3>
+<p>My, your, his, her, our, their, this, that, these, those сияқты <b>determiner — анықтауыш</b> зат есімнің алдында тұрса, оның алдына A/AN/THE қоса қойылмайды.</p>
+<div class="examples"><div class="ex"><b>my book</b><span>менің кітабым</span></div><div class="ex"><b>this car</b><span>мына көлік</span></div><div class="ex"><b>her friend</b><span>оның досы</span></div><div class="ex"><b>those students</b><span>ана студенттер</span></div></div>
+<div class="note"><b>Назар аудар:</b> ❌ <b>the my book</b> → ✓ <b>my book</b>; ❌ <b>a her friend</b> → ✓ <b>her friend</b>; ❌ <b>the this car</b> → ✓ <b>this car</b>.</div>
+<div class="q"><div class="tag">TEST 43</div><h4>Choose the correct phrase.</h4>
+<div class="opts"><div class="opt">A) the my book</div><div class="opt">B) a my book</div><div class="opt">C) my book</div><div class="opt">D) the this book</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) my book.</b> Possessive determiner <b>my</b> бар кезде article қосылмайды.</div></div>
+</div>
+<div class="rule" style="border:2px solid #6f52ed;background:linear-gradient(180deg,#fff 0%,#f7f4ff 100%)">
+<h3>Ø — ҚОРЫТЫНДЫ: қайда article қолданылмайды?</h3>
+<div class="cols">
+<div class="box"><h4>ЖАЛПЫ МАҒЫНА</h4><p>✓ plural nouns<br>✓ uncountable nouns<br>✓ languages<br>✓ school subjects<br>✓ sports & games</p></div>
+<div class="box"><h4>ҚАЛЫПТАСҚАН ЖАҒДАЙЛАР</h4><p>✓ meals<br>✓ days/months<br>✓ by + transport<br>✓ home/work/bed<br>✓ institution негізгі қызметімен<br>✓ at night / at dawn т.б.</p></div>
+<div class="box"><h4>ARTICLE ҚОСЫЛМАЙДЫ</h4><p>✓ my/your/his/her/our/their + noun<br>✓ this/that/these/those + noun</p></div>
+</div>
+<div class="note"><b>Ең маңызды салыстыру:</b> <b>Water is important.</b> → су жалпы → Ø. <b>The water in this bottle is cold.</b> → нақты су → THE. <br><b>Children go to school.</b> → оқуға барады → Ø. <b>They went to the school to meet the teacher.</b> → нақты ғимарат → THE.</div>
+<div class="formula">Жалпы мағына → жиі Ø &nbsp; | &nbsp; Нақты/белгілі мағына → THE болуы мүмкін</div>
+<div class="q"><div class="tag">TEST 44</div><h4>Choose the correct sentence.</h4>
+<div class="opts"><div class="opt">A) I like a music.</div><div class="opt">B) I like an music.</div><div class="opt">C) I like music.</div><div class="opt">D) I like the music in general.</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) I like music.</b> Music жалпы мағынадағы uncountable noun → Ø.</div></div>
+</div>
 </section>
-
-
 <section class="chapter" id="names">
-<h2>5. Proper Names & Personal Names</h2>
-<p class="sub"><b>proper name — жалқы есім</b> — жалқы есім. Бұл бөлім адам аттары, фамилиялар, титулдар және жалқы есімдердің A/AN, THE немесе Ø артикльмен қолданылуын түсіндіреді. Негізгі қағида: кәдімгі жеке адамның аты-жөні көбіне Ø article-мен келеді, бірақ мағына өзгерсе article де өзгеруі мүмкін.</p>
-
-<div class="rule"><h3>1. Personal names — адам аты-жөні</h3>
-<p>Адамның кәдімгі аты немесе аты-жөні нақты бір адамды өз атауымен көрсетеді. Сондықтан оның алдына әдетте <b>A/AN немесе THE қойылмайды</b>. Бұл жерде есімнің өзі анықтауыш қызметін атқарады.</p>
-<div class="formula">Ø + first name / first name + surname</div>
-<div class="examples">
-<div class="ex"><b>Anna lives in London.</b><span>Анна Лондонда тұрады.</span></div>
-<div class="ex"><b>John Smith called me yesterday.</b><span>Джон Смит кеше маған қоңырау шалды.</span></div>
-<div class="ex"><b>Maria speaks Italian.</b><span>Мария итальян тілінде сөйлейді.</span></div>
-<div class="ex"><b>David Brown is our new teacher.</b><span>Дэвид Браун — біздің жаңа мұғаліміміз.</span></div>
-<div class="ex"><b>Aigerim studies English.</b><span>Айгерім ағылшын тілін оқиды.</span></div>
-</div>
-<div class="note"><b>Назар аудар:</b> ❌ the Anna, ❌ a John Smith — кәдімгі жағдайда дұрыс емес. Бірақ төмендегі арнайы мағыналарда A немесе THE қолданылуы мүмкін.</div>
-<div class="q"><div class="tag">TEST 16</div><h4>___ David Brown works at our university.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>D) –.</b> <b>David Brown</b> — адамның кәдімгі аты-жөні. Жалқы есімнің алдында бұл мағынада article қолданылмайды. A/AN белгісіз бір мүшені білдірер еді, THE арнайы нақтылау мағынасын қажет етеді.</div></div>
-</div>
-
-<div class="rule"><h3>2. The + plural surname — бүкіл отбасы</h3>
-<p>Фамилияға <b>-s</b> жалғанып, бір отбасының барлық мүшесін білдірсе, алдына <b>THE</b> қойылады. Мұнда бір адам емес, белгілі отбасы тұтас топ ретінде көрсетіледі.</p>
-<div class="formula">THE + surname-s</div>
-<div class="examples">
-<div class="ex"><b>the Browns</b><span>Браундар отбасы</span></div>
-<div class="ex"><b>The Smiths live next door.</b><span>Смиттер отбасы көрші тұрады.</span></div>
-<div class="ex"><b>We invited the Wilsons to dinner.</b><span>Біз Уилсондар отбасын кешкі асқа шақырдық.</span></div>
-<div class="ex"><b>The Johnsons are on holiday.</b><span>Джонсондар отбасы демалыста.</span></div>
-</div>
-<div class="note"><b>Назар аудар:</b> <b>John Brown</b> = бір адамның аты-жөні → Ø. <b>the Browns</b> = Браундар отбасы → THE.</div>
-<div class="q"><div class="tag">TEST 17</div><h4>___ Browns are coming to dinner tonight.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) The.</b> <i>Browns</i> — plural surname және бүкіл отбасыны білдіреді. Сондықтан қалыпты құрылым — <b>the Browns</b>.</div></div>
-</div>
-
-<div class="rule"><h3>3. A/AN + personal name — «... деген бір адам»</h3>
-<p>Сөйлеуші адамның кім екенін нақты білмесе немесе тыңдаушыға оны «осындай есімді бір адам» деп алғаш таныстырса, жалқы есімнің алдында <b>A/AN</b> қолданылуы мүмкін. Бұл кәдімгі indefinite article мағынасының жалқы есімге ауысқан түрі.</p>
-<div class="examples">
-<div class="ex"><b>A Mr Brown called you.</b><span>Сізге Браун деген бір мырза қоңырау шалды.</span></div>
-<div class="ex"><b>A Ms Taylor is waiting outside.</b><span>Сыртта Тейлор деген бір ханым күтіп тұр.</span></div>
-<div class="ex"><b>There is a John Smith on the list.</b><span>Тізімде Джон Смит деген бір адам бар.</span></div>
-</div>
-<div class="note"><b>Мағына айырмасы:</b> <b>Mr Brown called.</b> — қай Браун екені белгілі. <b>A Mr Brown called.</b> — Браун деген бір адам қоңырау шалды, сөйлеуші оны жақын танымайды.</div>
-<div class="q"><div class="tag">TEST 18</div><h4>___ Mr Green called while you were out. I don't know who he is.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) A.</b> <i>I don't know who he is</i> контексті адамның сөйлеушіге белгісіз екенін көрсетеді. Сондықтан <b>a Mr Green</b> = «Грин деген бір мырза».</div></div>
-</div>
-
-<div class="rule"><h3>4. Titles + names — титул немесе қызмет + есім</h3>
-<p>President, Professor, Doctor/Dr, Queen, King сияқты титул адамның атымен тікелей бірге жалқы есімнің бөлігі ретінде қолданылса, әдетте article болмайды. Ал қызмет атауы адамның есімінсіз, нақты бір қызмет иесін білдірсе, <b>THE</b> қолданылады.</p>
-<div class="examples">
-<div class="ex"><b>Professor Green</b><span>Профессор Грин — title + name, Ø.</span></div>
-<div class="ex"><b>Dr Brown</b><span>Доктор Браун — title + name, Ø.</span></div>
-<div class="ex"><b>President Lincoln</b><span>Президент Линкольн — title + name, Ø.</span></div>
-<div class="ex"><b>the president of the company</b><span>компанияның нақты президенті</span></div>
-<div class="ex"><b>the director of the school</b><span>мектептің нақты директоры</span></div>
-</div>
-<div class="q"><div class="tag">TEST 19</div><h4>She spoke to ___ director of the school.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> <i>of the school</i> қай директор екендігін нақтылап тұр. Бұл title + personal name — адам аты-жөні емес, белгілі қызмет иесі.</div></div>
-</div>
-
-<div class="rule"><h3>5. Names with an identifying phrase — жалқы есімді нақтылау</h3>
-<p>Кейде бір есімнің қай нұсқасы немесе қай кезеңдегі адам екені қосымша сипаттамамен ажыратылады. Мұндай ерекше контексте THE пайда болуы мүмкін. Бұл күнделікті «THE + кез келген есім» деген ереже емес; article нақтылау мағынасынан туады.</p>
-<div class="examples">
-<div class="ex"><b>the young Mozart</b><span>жас кезіндегі Моцарт</span></div>
-<div class="ex"><b>the Shakespeare of our time</b><span>біздің заманымыздың Шекспирі деп сипатталған адам</span></div>
-<div class="ex"><b>Alexander the Great</b><span>Ұлы Александр — тұрақты тарихи эпитет.</span></div>
-</div>
-<div class="note"><b>Назар аудар:</b> B1 тестте ең маңыздысы — кәдімгі personal name — адам аты-жөні → Ø; family surname → THE; белгісіз «... деген бір адам» → A/AN; title + name → Ø.</div>
-</div>
-</section>
-
-<section class="chapter" id="deep-special">
-<h2>6. Detailed Special Cases</h2>
+<h2>5. Proper Names & Personal Names — жалқы және адам аттары</h2>
+<p class="sub"><b>Proper name — жалқы есім:</b> нақты бір адам, жер, ұйым немесе атаудың жеке аты. <b>Personal name — адамның аты-жөні.</b> Негізгі үлгі: адамның кәдімгі аты-жөні алдында Ø, бірақ кейбір арнайы мағыналарда A/AN немесе THE пайда болады.</p>
+<div class="formula">John Brown → Ø &nbsp; | &nbsp; the Browns → отбасы &nbsp; | &nbsp; a Mr Brown → Mr Brown деген бір адам</div>
+<div class="rule"><h3>1. Personal names — кәдімгі адам аты-жөні</h3><p>First name, surname немесе first name + surname кәдімгі жеке адамды атағанда article қолданылмайды.</p><div class="examples"><div class="ex"><b>John is my friend.</b><span>Джон — менің досым.</span></div><div class="ex"><b>Emma Watson is an actress.</b><span>Эмма Уотсон — актриса.</span></div><div class="ex"><b>I spoke to Brown yesterday.</b><span>Мен кеше Браунмен сөйлестім.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Кәдімгі personal name алдында *the John* немесе *a John* деп автоматты түрде айтпаймыз.</div><div class="q"><div class="tag">TEST 45</div><h4>___ John called me yesterday.</h4>
+<div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> John — кәдімгі personal name → Ø.</div></div></div><div class="rule"><h3>2. Titles + names — атақ/қаратпа + адам аты</h3><p>Mr, Mrs, Miss, Ms, Dr, Professor сияқты title нақты адамның аты-жөнімен қолданылса, әдетте article қойылмайды.</p><div class="examples"><div class="ex"><b>Mr Brown is here.</b><span>Браун мырза осында.</span></div><div class="ex"><b>Dr White will see you now.</b><span>Доктор Уайт сізді қазір қабылдайды.</span></div><div class="ex"><b>Professor Williams gave a lecture.</b><span>Профессор Уильямс дәріс оқыды.</span></div><div class="ex"><b>Sir John arrived early.</b><span>Сэр Джон ерте келді.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Кейбір сөздер жеке қаратпа ретінде де қолданылады: <b>Doctor</b>, <b>Professor</b>, <b>Sir</b>, <b>Madam</b>. Бірақ title-дың нақты үлгісін есте сақтау керек: <b>Sir John</b>, *Sir Brown* емес.</div><div class="q"><div class="tag">TEST 46</div><h4>I have an appointment with ___ Dr White.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Dr + surname — proper-name құрылымы → Ø.</div></div></div><div class="rule"><h3>3. The + plural surname — отбасы</h3><p>Фамилияны plural формаға қойып, алдына THE қойсақ, ол бүкіл отбасын білдіреді.</p><div class="examples"><div class="ex"><b>the Browns</b><span>Браундар отбасы</span></div><div class="ex"><b>the Smiths live next door.</b><span>Смиттер көрші тұрады.</span></div><div class="ex"><b>We had dinner with the Wilsons.</b><span>Біз Уилсондар отбасымен кешкі ас іштік.</span></div></div>
+<div class="note"><b>Назар аудар:</b> THE бір адамның кәдімгі фамилиясына емес, мұнда <b>plural family name</b>-ге қатысты.</div><div class="q"><div class="tag">TEST 47</div><h4>We visited ___ Browns last weekend.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) the</div><div class="opt">C) –</div><div class="opt">D) an</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>B) the.</b> Plural surname бүкіл отбасы мағынасында → <b>the Browns</b>.</div></div></div><div class="rule"><h3>4. A/AN + personal name — «... деген бір адам»</h3><p>Сөйлеуші тыңдаушыға таныс емес адамды атымен атап, «осындай аты бар бір адам» деген мағына берсе, A/AN қолданылуы мүмкін.</p><div class="examples"><div class="ex"><b>A Mr Brown called you.</b><span>Сізге Браун деген бір мырза қоңырау шалды.</span></div><div class="ex"><b>A Mrs Green is waiting outside.</b><span>Грин деген бір ханым сыртта күтіп тұр.</span></div><div class="ex"><b>There is a Dr Smith on the phone.</b><span>Телефонда Смит деген бір дәрігер бар.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Бұл жерде article адамның «біреу, кім екені бізге нақты таныс емес» деген мағынасын береді.</div><div class="q"><div class="tag">TEST 48</div><h4>___ Mr Parker called while you were out.</h4>
+<div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>A) A.</b> Mr Parker тыңдаушыға таныс емес «Parker деген бір адам» ретінде енгізіліп тұр.</div></div></div><div class="rule"><h3>5. THE + personal/proper name + defining phrase — нақты нұсқасы</h3><p>Proper name әдетте Ø болады. Бірақ сол атты <b>нақтылап, басқа ықтимал нұсқалардан ажырататын</b> сөз тіркесі келсе, THE қолданылуы мүмкін.</p><div class="examples"><div class="ex"><b>the John I told you about</b><span>мен саған айтқан нақты Джон</span></div><div class="ex"><b>the London of the 18th century</b><span>XVIII ғасырдағы Лондон</span></div><div class="ex"><b>the English we learnt at school</b><span>біз мектепте үйренген нақты ағылшын тілі</span></div></div>
+<div class="note"><b>Назар аудар:</b> Бұл THE proper name-нің алдында жайдан-жай тұрған жоқ; кейінгі анықтауыш оны <b>specific</b> етіп тұр.</div><div class="q"><div class="tag">TEST 49</div><h4>___ London of the 18th century was very different.</h4>
+<div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) The.</b> <b>of the 18th century</b> London-ды нақты бір кезеңмен шектейді → THE.</div></div></div><div class="rule"><h3>6. Names used for works / family membership — A/AN</h3><p>Кейбір proper name жалпы зат есімнің алдындағы анықтауыш сияқты қолданылады немесе адам белгілі әулеттің бір мүшесі ретінде сипатталады.</p><div class="examples"><div class="ex"><b>a Dickens novel</b><span>Диккенстің бір романы</span></div><div class="ex"><b>a Rembrandt</b><span>Рембрандттың бір туындысы</span></div><div class="ex"><b>He is a Forsyte.</b><span>Ол Форсайттар әулетінің бір мүшесі.</span></div></div>
+<div class="note"><b>Назар аудар:</b> Мұнда A/AN тікелей «Dickens» сөзінің кәдімгі адам аты мағынасына емес, бір шығарма/бір мүше деген саналатын мағынаға қатысты.</div><div class="q"><div class="tag">TEST 50</div><h4>She bought ___ Dickens novel.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>A) a.</b> Novel — singular countable noun; Dickens оны анықтап тұр → <b>a Dickens novel</b>.</div></div></div><div class="rule" style="border:2px solid #6f52ed"><h3>Proper & Personal Names — ҚОРЫТЫНДЫ</h3>
+<div class="cols"><div class="box"><h4>Ø</h4><p>John<br>Emma Watson<br>Mr Brown<br>Dr White<br>Professor Williams</p></div>
+<div class="box"><h4>THE</h4><p>the Browns = отбасы<br>the John I told you about<br>the London of the 18th century</p></div>
+<div class="box"><h4>A / AN</h4><p>a Mr Brown = Brown деген бір адам<br>a Dickens novel<br>a Rembrandt</p></div></div>
+<div class="q"><div class="tag">TEST 51</div><h4>Choose the correct sentence.</h4>
+<div class="opts"><div class="opt">A) The Mr Brown is here.</div><div class="opt">B) Mr Brown is here.</div><div class="opt">C) A Mr Brown is my known teacher.</div><div class="opt">D) An Mr Brown is here.</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>B) Mr Brown is here.</b> Кәдімгі title + surname алдында article жоқ.</div></div></div></section><section class="chapter" id="special">
+<h2>7. Special Cases — ерекше жағдайлар</h2>
 <p class="sub">Бұл бөлім article мағынасын өзгертіп жіберетін жағдайларды егжей-тегжейлі салыстырады. Бір сөзді жаттап қана қоймай, noun phrase-тің сөйлемдегі қызметін анықтау керек.</p>
 
-<div class="rule"><h3>1. Uncountable nouns — саналмайтын заттарды қалай санаймыз?</h3>
-<p><b>Water, tea, coffee, bread, rice, information, advice, furniture, equipment, news</b> сияқты сөздер негізгі мағынасында uncountable болады. Сондықтан олардың алдына тікелей A/AN қоя алмаймыз. Бір мөлшерін көрсету үшін саналатын unit/container/piece қолданамыз. Article дәл сол саналатын сөзге қатысты.</p>
-<div class="formula">A / AN + countable unit/container/piece + OF + uncountable noun — саналмайтын зат есім</div>
-<div class="examples">
-<div class="ex"><b>a cup of tea</b><span>бір кесе шай</span></div>
-<div class="ex"><b>a cup of coffee</b><span>бір кесе кофе</span></div>
-<div class="ex"><b>a glass of water</b><span>бір стақан су</span></div>
-<div class="ex"><b>a bottle of water</b><span>бір бөтелке су</span></div>
-<div class="ex"><b>a litre of milk</b><span>бір литр сүт</span></div>
-<div class="ex"><b>a bowl of rice</b><span>бір тостаған күріш</span></div>
-<div class="ex"><b>a loaf of bread</b><span>бір бөлке нан</span></div>
-<div class="ex"><b>a slice of bread</b><span>бір тілім нан</span></div>
-<div class="ex"><b>a piece of information</b><span>бір ақпарат / ақпараттың бір бөлігі</span></div>
-<div class="ex"><b>a piece of advice</b><span>бір кеңес</span></div>
-<div class="ex"><b>a piece of furniture</b><span>бір жиһаз заты</span></div>
-<div class="ex"><b>a piece of equipment</b><span>бір жабдық</span></div>
-<div class="ex"><b>a piece of news</b><span>бір жаңалық</span></div>
-<div class="ex"><b>a bar of chocolate</b><span>бір плитка шоколад</span></div>
-</div>
-<div class="note"><b>Қате:</b> ❌ an information → ✓ a piece of information. ❌ an advice → ✓ a piece of advice. ❌ a bread → ✓ a loaf/slice of bread. <b>A</b> tea-ға емес, <b>cup</b> сөзіне қатысты: <b>a cup of tea</b>.</div>
-<div class="q"><div class="tag">TEST 20</div><h4>She gave me ___ useful piece of advice.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <i>Advice</i> uncountable, бірақ негізгі саналатын сөз — <b>piece</b>. Article-ден кейін бірден <i>useful</i> тұр; ол /j/ дауыссыз дыбысынан басталады. Сондықтан <b>a useful piece of advice</b>.</div></div>
+<div class="q"><div class="tag">TEST 52</div><h4>She gave me ___ useful piece of advice.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <i>Advice</i> uncountable, бірақ негізгі саналатын сөз — <b>piece</b>. Article-ден кейін бірден <i>useful</i> тұр; ол /j/ дауыссыз дыбысынан басталады. Сондықтан <b>a useful piece of advice</b>.</div></div>
 </div>
 
-<div class="rule"><h3>2. Countable ↔ uncountable — мағына өзгергенде article де өзгереді</h3>
+<div class="rule"><h3>1. Countable ↔ uncountable — мағына өзгергенде article де өзгереді</h3>
 <p>Кейбір noun бір мағынада uncountable, басқа мағынада countable болады. Сондықтан «coffee әрқашан Ø» сияқты механикалық ереже дұрыс емес. Контекстте зат жалпы материал/ұғым ба, әлде бір порция/дана/оқиға ма — соны анықтаймыз.</p>
 <div class="examples">
 <div class="ex"><b>I like coffee.</b><span>Маған кофе жалпы ұнайды — сусын ретінде uncountable.</span></div>
@@ -466,60 +917,30 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="ex"><b>Experience is important.</b><span>Тәжірибе жалпы маңызды.</span></div>
 <div class="ex"><b>It was an amazing experience.</b><span>Бұл керемет бір оқиға/тәжірибе болды.</span></div>
 </div>
-<div class="q"><div class="tag">TEST 21</div><h4>It was ___ unforgettable experience.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) an.</b> Мұнда <i>experience</i> — жеке оқиға, сондықтан countable. <i>Unforgettable</i> дауысты дыбыстан басталады → <b>an unforgettable experience</b>.</div></div>
+<div class="q"><div class="tag">TEST 53</div><h4>It was ___ unforgettable experience.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>B) an.</b> Мұнда <i>experience</i> — жеке оқиға, сондықтан countable. <i>Unforgettable</i> дауысты дыбыстан басталады → <b>an unforgettable experience</b>.</div></div>
 </div>
 
-<div class="rule"><h3>3. Meals — Ø / A / THE мағына айырмасы</h3>
-<p>Breakfast, lunch, dinner күнделікті тамақтану атауы ретінде Ø article-мен келеді. Белгілі бір нақты тамақтану туралы айтсақ THE қолданылады. Ал meal ерекше бір оқиға ретінде adjective — сын есім арқылы сипатталса A/AN болуы мүмкін.</p>
-<div class="examples">
-<div class="ex"><b>We have breakfast at seven.</b><span>Біз жетіде таңғы ас ішеміз — күнделікті әрекет, Ø.</span></div>
-<div class="ex"><b>Lunch is ready.</b><span>Түскі ас дайын — қалыпты meal атауы, Ø.</span></div>
-<div class="ex"><b>The breakfast at the hotel was excellent.</b><span>Қонақүйдегі нақты таңғы ас керемет болды — THE.</span></div>
-<div class="ex"><b>We had a wonderful dinner.</b><span>Біз керемет кешкі ас іштік — ерекше бір meal/event, A.</span></div>
-<div class="ex"><b>She prepared a big breakfast for everyone.</b><span>Ол барлығына мол таңғы ас дайындады — сипатталған бір meal.</span></div>
-</div>
-<div class="q"><div class="tag">TEST 22</div><h4>We had ___ delicious lunch at a small café.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <i>Lunch</i> бұл жерде adjective — сын есім арқылы сипатталған жеке meal/event: <b>a delicious lunch</b>.</div></div>
+<div class="q"><div class="tag">TEST 54</div><h4>We had ___ delicious lunch at a small café.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> <i>Lunch</i> бұл жерде adjective — сын есім арқылы сипатталған жеке meal/event: <b>a delicious lunch</b>.</div></div>
 </div>
 
-<div class="rule"><h3>4. Day, night, morning, evening & seasons</h3>
-<p>Уақыт атауларында article тек noun-ға емес, тұрақты тіркес пен мағынаға байланысты. Күннің бөліктері үшін <b>in the morning, in the afternoon, in the evening</b>, бірақ <b>at night</b> қолданылады. Season жалпы ұғым болса Ø; нақты бір жылдың маусымы THE; сипатталған бір кезең A/AN ала алады.</p>
-<div class="examples">
-<div class="ex"><b>in the morning</b><span>таңертең</span></div>
-<div class="ex"><b>in the afternoon</b><span>түстен кейін</span></div>
-<div class="ex"><b>in the evening</b><span>кешке</span></div>
-<div class="ex"><b>at night</b><span>түнде</span></div>
-<div class="ex"><b>I love summer.</b><span>Маған жаз жалпы ұнайды — Ø.</span></div>
-<div class="ex"><b>The summer of 2025 was very hot.</b><span>2025 жылдың нақты жазы өте ыстық болды — THE.</span></div>
-<div class="ex"><b>It was a cold morning.</b><span>Бұл суық бір таң еді — A.</span></div>
-</div>
-<div class="q"><div class="tag">TEST 23</div><h4>We arrived early in ___ morning.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> Қалыпты тұрақты тіркес — <b>in the morning</b>. Ал <b>at night</b> article-сіз келеді.</div></div>
+<div class="q"><div class="tag">TEST 55</div><h4>We arrived early in ___ morning.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> Қалыпты тұрақты тіркес — <b>in the morning</b>. Ал <b>at night</b> article-сіз келеді.</div></div>
 </div>
 
-<div class="rule"><h3>5. School, university, prison, church, hospital — institution vs building</h3>
-<p>institution — мекеме/институционалдық қызмет өзінің негізгі қызметі бойынша қолданылса, әсіресе British English үлгісінде, Ø article болуы мүмкін: student <b>at school</b>, prisoner <b>in prison</b>. Егер сол орынды нақты ғимарат ретінде айтсақ THE қолданылады. Hospital қолданысында British және American English айырмашылығы болуы мүмкін, сондықтан контекст маңызды.</p>
-<div class="examples">
-<div class="ex"><b>The children are at school.</b><span>Балалар мектепте оқып жүр — негізгі қызметі.</span></div>
-<div class="ex"><b>Their parents are at the school.</b><span>Ата-аналары нақты мектеп ғимаратында.</span></div>
-<div class="ex"><b>He was sent to prison.</b><span>Ол тұтқын ретінде түрмеге жіберілді.</span></div>
-<div class="ex"><b>She went to the prison to visit him.</b><span>Ол оны көру үшін нақты түрме ғимаратына барды.</span></div>
-<div class="ex"><b>They go to church on Sundays.</b><span>Олар жексенбіде ғибадат етуге шіркеуге барады.</span></div>
-<div class="ex"><b>We photographed the church.</b><span>Біз нақты шіркеу ғимаратын суретке түсірдік.</span></div>
-</div>
-<div class="q"><div class="tag">TEST 24</div><h4>My mother went to ___ school to speak to my teacher.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> Анасы мектепке оқушы ретінде бармайды; ол нақты school building-ке мұғаліммен сөйлесуге барды.</div></div>
+<div class="q"><div class="tag">TEST 56</div><h4>My mother went to ___ school to speak to my teacher.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the.</b> Анасы мектепке оқушы ретінде бармайды; ол нақты school building-ке мұғаліммен сөйлесуге барды.</div></div>
 </div>
 
-<div class="rule"><h3>6. Most / the most</h3>
-<p><b>Most + plural/uncountable noun — саналмайтын зат есім</b> «көпшілігі, көбі» деген quantifier мағынасында THE-сіз келеді. <b>The most + adjective — сын есім</b> superlative — күшейтпелі шырай (ең...) жасайды және «ең...» деген мағына береді.</p>
+<div class="rule"><h3>2. Most / the most</h3>
+<p><b>Most + plural/uncountable noun — саналмайтын зат есім</b> «көпшілігі, көбі» деген quantifier мағынасында THE-сіз келеді. <b>The most + adjective — сын есім</b> superlative — асырмалы шырай (ең...) жасайды және «ең...» деген мағына береді.</p>
 <div class="examples">
 <div class="ex"><b>Most students passed the test.</b><span>Студенттердің көбі тесттен өтті.</span></div>
 <div class="ex"><b>Most people need sleep.</b><span>Адамдардың көбі ұйқыны қажет етеді.</span></div>
 <div class="ex"><b>This is the most interesting chapter.</b><span>Бұл — ең қызықты тарау.</span></div>
 <div class="ex"><b>She is the most experienced teacher here.</b><span>Ол мұндағы ең тәжірибелі мұғалім.</span></div>
 </div>
-<div class="q"><div class="tag">TEST 25</div><h4>___ students in our group use smartphones.</h4><div class="opts"><div class="opt">A) Most</div><div class="opt">B) The most</div><div class="opt">C) A most</div><div class="opt">D) The</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) Most.</b> Мұнда superlative — күшейтпелі шырай (ең...) жоқ. Мағынасы — «біздің топтағы студенттердің көбі».</div></div>
+<div class="q"><div class="tag">TEST 57</div><h4>___ students in our group use smartphones.</h4><div class="opts"><div class="opt">A) Most</div><div class="opt">B) The most</div><div class="opt">C) A most</div><div class="opt">D) The</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) Most.</b> Мұнда superlative — асырмалы шырай (ең...) жоқ. Мағынасы — «біздің топтағы студенттердің көбі».</div></div>
 </div>
 
-<div class="rule"><h3>7. Another / other / the other / the others</h3>
+<div class="rule"><h3>3. Another / other / the other / the others</h3>
 <p><b>Another</b> = тағы бір немесе басқа бір singular countable noun — жекеше саналатын зат есім. <b>Other</b> = басқа, көбіне plural немесе uncountable noun — саналмайтын зат есім алдында. <b>The other</b> = белгілі топтағы қалған біреуі. <b>The others</b> = қалған белгілі адамдар/заттар.</p>
 <div class="examples">
 <div class="ex"><b>Can I have another cup?</b><span>Тағы бір кесе алсам бола ма?</span></div>
@@ -527,10 +948,10 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="ex"><b>One bag is black; the other is brown.</b><span>Бір сөмке қара, қалған екіншісі қоңыр.</span></div>
 <div class="ex"><b>Two students left; the others stayed.</b><span>Екі студент кетіп қалды, қалғандары қалды.</span></div>
 </div>
-<div class="q"><div class="tag">TEST 26</div><h4>I have two sisters. One lives in Almaty; ___ lives in Astana.</h4><div class="opts"><div class="opt">A) another</div><div class="opt">B) other</div><div class="opt">C) the other</div><div class="opt">D) an other</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the other.</b> Екі адамның біреуі айтылды. Енді қалған нақты екіншісі туралы айтылып тұр.</div></div>
+<div class="q"><div class="tag">TEST 58</div><h4>I have two sisters. One lives in Almaty; ___ lives in Astana.</h4><div class="opts"><div class="opt">A) another</div><div class="opt">B) other</div><div class="opt">C) the other</div><div class="opt">D) an other</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) the other.</b> Екі адамның біреуі айтылды. Енді қалған нақты екіншісі туралы айтылып тұр.</div></div>
 </div>
 
-<div class="rule"><h3>8. A few / few · a little / little</h3>
+<div class="rule"><h3>4. A few / few · a little / little</h3>
 <p>Article мағынаны өзгертеді. <b>Few/little</b> — өте аз, жеткіліксіз деген теріс реңк. <b>A few/a little</b> — аз болса да бар деген оң реңк. <b>Few/a few</b> plural countable noun-мен; <b>little/a little</b> uncountable noun — саналмайтын зат есім-мен қолданылады.</p>
 <div class="examples">
 <div class="ex"><b>Few students understood.</b><span>Түсінген студент өте аз болды.</span></div>
@@ -538,70 +959,82 @@ main{width:min(1120px,calc(100% - 28px));margin:44px auto 150px}
 <div class="ex"><b>We have little time.</b><span>Уақытымыз өте аз, жеткіліксіз.</span></div>
 <div class="ex"><b>We have a little time.</b><span>Аз да болса уақытымыз бар.</span></div>
 </div>
-<div class="q"><div class="tag">TEST 27</div><h4>We still have ___ time, so don't hurry.</h4><div class="opts"><div class="opt">A) few</div><div class="opt">B) a few</div><div class="opt">C) little</div><div class="opt">D) a little</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>D) a little.</b> <i>Time</i> uncountable. <i>Don't hurry</i> — уақыт аз болса да жеткілікті екенін көрсетеді.</div></div>
+<div class="q"><div class="tag">TEST 59</div><h4>We still have ___ time, so don't hurry.</h4><div class="opts"><div class="opt">A) few</div><div class="opt">B) a few</div><div class="opt">C) little</div><div class="opt">D) a little</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>D) a little.</b> <i>Time</i> uncountable. <i>Don't hurry</i> — уақыт аз болса да жеткілікті екенін көрсетеді.</div></div>
 </div>
 
-<div class="rule"><h3>9. No article before another central determiner</h3>
-<p><b>My, your, his, her, our, their, this, that, these, those, some, any</b> сияқты determiner-лер noun phrase ішінде article тұратын негізгі позицияны өздері алады. Сондықтан article-ді олардың алдына қатар қоспаймыз.</p>
-<div class="examples">
-<div class="ex"><b>my book ✓ / the my book ✗</b><span>менің кітабым</span></div>
-<div class="ex"><b>this car ✓ / the this car ✗</b><span>мына көлік</span></div>
-<div class="ex"><b>her friend ✓ / a her friend ✗</b><span>оның досы</span></div>
-<div class="ex"><b>some information ✓ / an some information ✗</b><span>біраз ақпарат</span></div>
-</div>
-<div class="q"><div class="tag">TEST 28</div><h4>Choose the correct phrase.</h4><div class="opts"><div class="opt">A) the my friend</div><div class="opt">B) a this book</div><div class="opt">C) her new job</div><div class="opt">D) the some students</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) her new job.</b> <i>Her</i> — possessive determiner. Ол бар кезде article қоспаймыз.</div></div>
+<div class="q"><div class="tag">TEST 60</div><h4>Choose the correct phrase.</h4><div class="opts"><div class="opt">A) the my friend</div><div class="opt">B) a this book</div><div class="opt">C) her new job</div><div class="opt">D) the some students</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) her new job.</b> <i>Her</i> — possessive determiner. Ол бар кезде article қоспаймыз.</div></div>
 </div>
 </section>
 
 <section class="chapter" id="geo">
-<h2>5. Articles with Geography</h2>
-<h3>Ø жиі қолданылатын атаулар</h3>
-<table><tr><th>Түрі</th><th>Мысал</th></tr><tr><td>Көптеген мемлекеттер</td><td>Kazakhstan, Italy, Canada</td></tr><tr><td>Қалалар</td><td>Almaty, London, Rome</td></tr><tr><td>Континенттер</td><td>Asia, Europe, Africa</td></tr><tr><td>Жеке тау</td><td>Mount Everest</td></tr><tr><td>Lake + атау</td><td>Lake Balkhash, Lake Baikal</td></tr><tr><td>Көптеген көше атаулары</td><td>Oxford Street</td></tr></table>
-<h3>THE жиі қолданылатын атаулар</h3>
-<table><tr><th>Түрі</th><th>Мысал</th></tr><tr><td>Өзендер</td><td>the Nile, the Thames</td></tr><tr><td>Теңіздер</td><td>the Caspian Sea, the Black Sea</td></tr><tr><td>Мұхиттар</td><td>the Pacific Ocean, the Atlantic Ocean</td></tr><tr><td>Тау жоталары</td><td>the Alps, the Himalayas</td></tr><tr><td>Шөлдер</td><td>the Sahara, the Gobi Desert</td></tr><tr><td>Кейбір мемлекет атаулары</td><td>the United States, the United Kingdom, the Netherlands</td></tr><tr><td>Каналдар</td><td>the Panama Canal, the Suez Canal</td></tr></table>
+<h2>6. Articles with Geographical Names — географиялық атаулар</h2>
+<p class="sub">Географиялық атауларда негізгі принцип — proper name болғандықтан көбіне Ø. Бірақ атаудың түріне қарай THE қажет болатын тұрақты топтар бар.</p>
+<div class="formula">Көптеген жеке атаулар → Ø &nbsp; | &nbsp; rivers / seas / oceans / ranges / deserts / groups / political descriptive names → THE</div>
+<div class="rule"><h3>1. Countries, continents, cities — көбіне Ø</h3><p>Жай country, continent және city атауларының алдында article болмайды.</p><div class="examples"><div class="ex"><b>Kazakhstan</b><span>Қазақстан</span></div><div class="ex"><b>Italy</b><span>Италия</span></div><div class="ex"><b>Japan</b><span>Жапония</span></div><div class="ex"><b>Asia</b><span>Азия</span></div><div class="ex"><b>Europe</b><span>Еуропа</span></div><div class="ex"><b>London</b><span>Лондон</span></div><div class="ex"><b>Almaty</b><span>Алматы</span></div></div>
+<div class="note"><b>Назар аудар:</b> Ел атауында <b>United, Kingdom, Republic, States</b> сияқты сипаттаушы/саяси сөздер болса THE жиі қажет: the United Kingdom, the United States.</div><div class="q"><div class="tag">TEST 61</div><h4>She lives in ___ Italy.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Italy — кәдімгі country proper name → Ø.</div></div></div><div class="rule"><h3>2. Countries with descriptive/plural political names — THE</h3><p>United, Kingdom, Republic, States, Emirates сияқты құрылымы бар кейбір ел атаулары THE алады.</p><div class="examples"><div class="ex"><b>the United Kingdom</b><span>Біріккен Корольдік</span></div><div class="ex"><b>the United States</b><span>Америка Құрама Штаттары</span></div><div class="ex"><b>the United Arab Emirates</b><span>Біріккен Араб Әмірліктері</span></div><div class="ex"><b>the Netherlands</b><span>Нидерланд</span></div></div>
+<div class="note"><b>Назар аудар:</b> Ел атауларын тек «соңында s бар/жоқ» деп шешпейміз; conventional name-ді есте сақтаймыз.</div><div class="q"><div class="tag">TEST 62</div><h4>He moved to ___ United Kingdom.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) the.</b> Тұрақты атау — <b>the United Kingdom</b>.</div></div></div><div class="rule"><h3>3. Rivers, seas, oceans, canals, channels, gulfs, straits — THE</h3><p>Өзендер, теңіздер, мұхиттар және canal/channel/gulf/strait атаулары әдетте THE алады.</p><div class="examples"><div class="ex"><b>the Nile</b><span>Ніл өзені</span></div><div class="ex"><b>the Thames</b><span>Темза</span></div><div class="ex"><b>the Caspian Sea</b><span>Каспий теңізі</span></div><div class="ex"><b>the Pacific Ocean</b><span>Тынық мұхиты</span></div><div class="ex"><b>the Panama Canal</b><span>Панама каналы</span></div><div class="ex"><b>the English Channel</b><span>Ла-Манш</span></div></div>
+<div class="note"><b>Назар аудар:</b> River сөзінің өзі кейде атауда көрінбеуі мүмкін: <b>the Nile</b>. Бірақ article сақталады.</div><div class="q"><div class="tag">TEST 63</div><h4>The Panama Canal connects ___ Atlantic and ___ Pacific.</h4>
+<div class="opts"><div class="opt">A) the / the</div><div class="opt">B) – / –</div><div class="opt">C) an / a</div><div class="opt">D) a / the</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>A) the / the.</b> Ocean атаулары → THE: <b>the Atlantic, the Pacific</b>.</div></div></div><div class="rule"><h3>4. Mountain ranges and deserts — THE; single mountains — Ø</h3><p>Mountain range — тау жотасы және desert — шөл атауларымен THE; жеке mountain атауымен көбіне Ø қолданылады.</p><div class="examples"><div class="ex"><b>the Alps</b><span>Альпі таулары</span></div><div class="ex"><b>the Himalayas</b><span>Гималай</span></div><div class="ex"><b>the Rockies</b><span>Рокки</span></div><div class="ex"><b>the Sahara</b><span>Сахара</span></div><div class="ex"><b>the Gobi Desert</b><span>Гоби шөлі</span></div><div class="ex"><b>Mount Everest</b><span>Эверест тауы</span></div><div class="ex"><b>Mont Blanc</b><span>Монблан</span></div></div>
+<div class="note"><b>Назар аудар:</b> Ең маңызды contrast: <b>the Alps</b> — тау жүйесі, бірақ <b>Mount Everest</b> — бір жеке тау.</div><div class="q"><div class="tag">TEST 64</div><h4>They climbed ___ Mount Everest.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Single mountain name → Ø.</div></div></div><div class="rule"><h3>5. Islands: single island Ø; island groups THE</h3><p>Жеке арал атауы көбіне Ø, ал аралдар тобы/архипелаг атауы THE алады.</p><div class="examples"><div class="ex"><b>Malta</b><span>Мальта</span></div><div class="ex"><b>Sicily</b><span>Сицилия</span></div><div class="ex"><b>the Bahamas</b><span>Багам аралдары</span></div><div class="ex"><b>the Canary Islands</b><span>Канар аралдары</span></div></div>
+<div class="note"><b>Назар аудар:</b> Single island пен group of islands айырмасын ажырат.</div><div class="q"><div class="tag">TEST 65</div><h4>They spent a week in ___ Bahamas.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) the.</b> The Bahamas — island group → THE.</div></div></div><div class="rule"><h3>6. Lakes, streets, parks and many buildings — көбіне Ø</h3><p>Lake + name, street/road, park және көптеген жеке building атаулары proper name ретінде Ø қолданылады.</p><div class="examples"><div class="ex"><b>Lake Baikal</b><span>Байкал көлі</span></div><div class="ex"><b>Lake Geneva</b><span>Женева көлі</span></div><div class="ex"><b>Oxford Street</b><span>Оксфорд-стрит</span></div><div class="ex"><b>Hyde Park</b><span>Гайд-парк</span></div><div class="ex"><b>Buckingham Palace</b><span>Букингем сарайы</span></div><div class="ex"><b>Westminster Abbey</b><span>Вестминстер аббаттығы</span></div></div>
+<div class="note"><b>Назар аудар:</b> Бұл топта conventional exceptions бар, сондықтан атаудың ресми қалыптасқан формасын да ескеру керек.</div><div class="q"><div class="tag">TEST 66</div><h4>There is a beautiful view of ___ Lake Geneva.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>D) –.</b> Lake + proper name → Ø.</div></div></div><div class="rule"><h3>7. Geographical regions / historical regions — кейбірі THE</h3><p>Кейбір аймақтар мен тарихи-географиялық атаулар THE-мен қалыптасқан.</p><div class="examples"><div class="ex"><b>the Arctic</b><span>Арктика</span></div><div class="ex"><b>the Balkans</b><span>Балқан</span></div><div class="ex"><b>the Dark Ages</b><span>Қараңғы ғасырлар</span></div><div class="ex"><b>Ancient Rome</b><span>Ежелгі Рим</span></div></div>
+<div class="note"><b>Назар аудар:</b> Бұл жерде бір ғана механикалық ереже жоқ: conventional form маңызды. Мысалы <b>the Arctic</b>, бірақ <b>Central Asia</b>.</div><div class="q"><div class="tag">TEST 67</div><h4>Ferguson travelled from Central Asia to ___ Arctic.</h4>
+<div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>C) the.</b> Қалыптасқан geographical region — <b>the Arctic</b>.</div></div></div><div class="rule" style="border:2px solid #6f52ed"><h3>Geography — ҚОРЫТЫНДЫ</h3>
+<div class="cols"><div class="box"><h4>Ø</h4><p>Kazakhstan, Italy<br>Asia, Europe<br>London, Almaty<br>Lake Baikal<br>Mount Everest<br>Oxford Street<br>Hyde Park</p></div>
+<div class="box"><h4>THE</h4><p>the United Kingdom<br>the Nile<br>the Caspian Sea<br>the Pacific<br>the Alps<br>the Sahara<br>the Bahamas<br>the Arctic</p></div></div>
+<div class="q"><div class="tag">TEST 68</div><h4>Choose the correct pair.</h4>
+<div class="opts"><div class="opt">A) the Italy / Alps</div><div class="opt">B) Italy / the Alps</div><div class="opt">C) the Italy / the Alps</div><div class="opt">D) Italy / Alps</div></div>
+<button onclick="reveal(this)">Жауабы мен талдауы</button>
+<div class="answer"><b>B) Italy / the Alps.</b> Country proper name → Ø; mountain range → THE.</div></div></div></section>
+<section class="chapter final-summary" id="summary">
+  <div class="section-label">FINAL REVIEW</div>
+  <h2>Articles — соңғы қорытынды</h2>
+  <p class="sub">КТ спецификациясындағы алты тармақты бір экранда қайталау.</p>
 
-<div class="q"><div class="tag">TEST 29</div><h4>___ Panama Canal joins ___ Atlantic Ocean and ___ Pacific Ocean.</h4><div class="opts"><div class="opt">A) - / - / the</div><div class="opt">B) - / - / -</div><div class="opt">C) The / the / the</div><div class="opt">D) - / the / the</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>C) The / the / the.</b> Canal және ocean атаулары бұл жерде THE-мен қолданылады: the Panama Canal, the Atlantic Ocean, the Pacific Ocean.</div></div>
-</section>
+  <div class="summary-table">
+    <div class="sum-row sum-head"><span>Тақырып</span><span>Негізгі белгі</span><span>Мысал</span></div>
+    <div class="sum-row"><b>Indefinite — A / AN</b><span>singular countable; біреу; алғаш рет; profession/classification</span><span>a teacher · an engineer</span></div>
+    <div class="sum-row"><b>Definite — THE</b><span>нақты/белгілі; second mention; unique; superlative/ordinal</span><span>the book · the sun · the first</span></div>
+    <div class="sum-row"><b>Zero Article — Ø</b><span>general plural/uncountable; languages; subjects; sports; meals</span><span>Books · music · English · tennis</span></div>
+    <div class="sum-row"><b>Geographical names</b><span>көп жеке атау → Ø; rivers/seas/oceans/ranges/groups → THE</span><span>Italy · the Nile · the Alps</span></div>
+    <div class="sum-row"><b>Proper names</b><span>көбіне Ø; сипатталған/шектелген атауда article өзгеруі мүмкін</span><span>London · the London of the 18th century</span></div>
+    <div class="sum-row"><b>Personal names</b><span>кәдімгі аты-жөні → Ø; family → THE; белгісіз Mr/Ms → A</span><span>John · the Browns · a Mr Parker</span></div>
+  </div>
 
-<section class="chapter" id="special">
-<h2>6. Special Cases & Contrasts</h2>
-
-<h3>general — жалпы vs Specific — жалпы және нақты мағына</h3>
-<div class="examples"><b>Music</b> helps me relax. — музыка жалпы.<br><b>The music</b> in this film is beautiful. — нақты фильмдегі музыка.<br><br><b>Children</b> need sleep. — балалар жалпы.<br><b>The children</b> in this room are quiet. — нақты балалар.</div>
-
-<h3>Meal: Ø / A / THE</h3>
-<div class="examples">We had <b>breakfast</b> at seven. — күнделікті тамақтану.<br>We had <b>a wonderful breakfast</b>. — сипатталған бір breakfast.<br><b>The breakfast</b> at the hotel was excellent. — нақты breakfast.</div>
-
-<h3>Coffee: uncountable және serving meaning</h3>
-<div class="examples">I like <b>coffee</b>. — кофе жалпы.<br>Two <b>coffees</b>, please. — екі порция/шыны кофе.</div>
-
-<h3>Few / a few</h3>
-<div class="examples"><b>few</b> = өте аз, жеткіліксіз деген реңк<br><b>a few</b> = бірнеше, бар деген оңырақ реңк</div>
-
-<h3>Little / a little</h3>
-<div class="examples"><b>little</b> = өте аз<br><b>a little</b> = аздап, біраз</div>
-
-<h3>Other / another / the other</h3>
-<div class="examples"><b>another</b> = тағы бір / басқа бір<br><b>other</b> = басқа<br><b>the other</b> = қалған нақты біреуі</div>
-
-<h3>Most / the most</h3>
-<div class="examples"><b>Most students</b> — студенттердің көпшілігі.<br>She is <b>the most successful student</b> — ең табысты студент.</div>
-
-<h3>Fixed expressions — тұрақты тіркестер</h3>
-<div class="cols"><div class="box"><b>THE</b><br>in the morning<br>in the afternoon<br>in the evening<br>play the piano<br>at the beginning / end (specific — нақты context)</div><div class="box"><b>Ø</b><br>at night<br>at home<br>at work<br>go home<br>go to bed<br>on foot<br>by car</div></div>
-
-
+  <div class="exam-check">
+    <h3>5 секундтық тексеру</h3>
+    <p><b>1.</b> Singular countable? → A/AN болуы мүмкін. &nbsp; <b>2.</b> Нақты/белгілі? → THE. &nbsp; <b>3.</b> Жалпы plural/uncountable? → Ø. &nbsp; <b>4.</b> Proper name? → атау тобының ережесін тексер.</p>
+  </div>
 </section>
 
 <section class="chapter" id="mix">
-<h2>9. Final Mixed Practice</h2>
+<h2>8. Final Mixed Practice</h2>
 <p class="sub">Енді ереженің атауы алдын ала берілмейді. Алдымен noun phrase пен контексті талдаймыз.</p>
 
-<div class="q"><div class="tag">TEST 30</div><h4>She wants to become ___ engineer.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>B) an.</b> Profession; singular countable noun — жекеше саналатын зат есім. Engineer дауысты дыбыстан басталады.</div></div>
+<div class="q"><div class="tag">TEST 69</div><h4>She wants to become ___ engineer.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>B) an.</b> Profession; singular countable noun — жекеше саналатын зат есім. Engineer дауысты дыбыстан басталады.</div></div>
 
-<div class="q"><div class="tag">TEST 31</div><h4>We usually have ___ lunch at noon.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>D) –.</b> Meal жалпы күнделікті мағынада қолданылған.</div></div>
+<div class="q"><div class="tag">TEST 70</div><h4>We usually have ___ lunch at noon.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>D) –.</b> Meal жалпы күнделікті мағынада қолданылған.</div></div>
 
-<div class="q"><div class="tag">TEST 32</div><h4>___ water in this glass is cold.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>C) The.</b> Water uncountable болғанымен, “in this glass” оны нақтылап тұр.</div></div>
+<div class="q"><div class="tag">TEST 71</div><h4>___ water in this glass is cold.</h4><div class="opts"><div class="opt">A) A</div><div class="opt">B) An</div><div class="opt">C) The</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Талдауды ашу</button><div class="answer"><b>C) The.</b> Water uncountable болғанымен, “in this glass” оны нақтылап тұр.</div></div>
 
 <div class="final"><b>ARTICLE ТАҢДАУ АЛГОРИТМІ</b><br><br>1. Негізгі зат есімді тап.<br>2. Singular / plural екенін анықта.<br>3. Countable / uncountable екенін тексер.<br>4. Мағынасы general — жалпы ма, specific — нақты ма?<br>5. Geography, meal, transport, institution — мекеме/институционалдық қызмет сияқты арнайы жағдай бар ма?<br>6. A/AN керек болса, A немесе AN-ды <b>дыбысқа</b> қарап таңда.</div>
 
