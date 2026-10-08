@@ -350,7 +350,27 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 
 
-</head>
+<style id="article-3d-visuals">
+.article-visual{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;padding:28px 18px;margin:22px 0 32px;background:linear-gradient(135deg,#edf4ff,#fff9ed);border:1px solid #dce5f1;border-radius:18px;overflow:hidden}
+.article-visual .tile{position:relative;display:grid;place-items:center;width:118px;height:118px;border-radius:24px;background:linear-gradient(145deg,#fff,#cbd9ee);box-shadow:14px 15px 20px #243e6230,inset 3px 3px 8px #fff;transform:perspective(500px) rotateY(-13deg) rotateX(9deg);flex-shrink:0}
+.article-visual .tile strong{font:800 48px Georgia,serif;color:#153f73;text-shadow:2px 3px 1px #ffffff,5px 7px 5px #344e7966}
+.article-visual .tile small{position:absolute;bottom:12px;font:700 11px Arial;color:#526782;letter-spacing:.08em}
+.article-visual .caption{flex:1 1 230px;max-width:470px;font-size:16px;line-height:1.65;color:#30425d}
+.article-visual .caption b{color:#123f73}
+.article-visual.scene .tile{width:146px;height:120px;background:linear-gradient(145deg,#fdf5df,#d4e5ff)}
+.article-visual.scene .tile strong{font-size:34px}
+@media(max-width:600px){.article-visual{padding:20px 12px;gap:16px}.article-visual .tile{width:90px;height:90px}.article-visual .tile strong{font-size:37px}.article-visual .caption{flex-basis:180px;font-size:14px}}
+</style>
+<style id="situational-illustrations-css">
+.grammar-situation{margin:22px 0 26px;border:1px solid #dce5ef;border-radius:18px;overflow:hidden;background:white;box-shadow:0 12px 28px #12233f12}
+.situation-art{display:flex;align-items:center;justify-content:space-evenly;gap:16px;flex-wrap:wrap;padding:28px 20px;min-height:170px;background:radial-gradient(ellipse at 30% 15%,#fff 0%,#e8f2ff 60%,#d6e5f6 100%);perspective:700px}
+.situation-object{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:120px;padding:17px 14px;background:linear-gradient(145deg,#fff,#e9edf4);border:1px solid #fff;border-radius:20px;box-shadow:10px 13px 0 #a2b9d255,13px 19px 22px #152e4a22;transform:rotateY(-9deg) rotateX(5deg)}
+.situation-emoji{font-size:64px;line-height:1.2;filter:drop-shadow(3px 8px 4px #172f4733)}
+.situation-object b{font-size:15px;color:#123f73;text-align:center}
+.grammar-situation figcaption{display:flex;flex-direction:column;gap:4px;padding:16px 20px;font-size:15px;color:#536278}
+.grammar-situation figcaption strong{font-size:17px;color:#102b4c}
+@media(max-width:600px){.situation-art{padding:20px 10px}.situation-object{min-width:100px;padding:12px 8px}.situation-emoji{font-size:48px}}
+</style></head>
 <body>
 <header class="hero"><div class="wrap"><div class="kicker">MAGIST.PRO · general — жалпы English Grammar</div><h1>ARTICLES</h1><p>Ағылшын тіліндегі артикльдер: <b>Definite Article — THE</b>, <b>Indefinite Article — A / AN</b> және <b>Zero Article — Ø</b>.</p></div></header>
 <nav><a href="#intro">Article</a><a href="#exam-map">Exam map</a><a href="#aan">A / AN</a><a href="#the">THE</a><a href="#zero">Ø</a><a href="#names">Names</a><a href="#geo">Geography</a><a href="#special">Special cases</a><a href="#summary">Summary</a><a href="#mix">Practice</a></nav>
@@ -358,6 +378,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <section class="chapter" id="intro">
 <h2>1. Article дегеніміз не?</h2>
+
 <p><b>Article — артикль.</b> Артикль зат есіммен бірге қолданылып, сөйлеушінің сол адамды немесе затты қалай көрсетіп тұрғанын білдіреді: ол нақты белгілі ме, белгісіз/біреу ме, әлде артикль мүлдем қажет емес пе.</p>
 <div class="cols">
 <div class="box"><h4>Definite Article</h4><b>THE</b><p>Белгілілік артиклі. Нақты, белгілі адам немесе зат туралы айтқанда қолданылады.</p></div>
@@ -408,6 +429,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <section class="chapter" id="aan">
 <h2>2. Indefinite Article — A / AN</h2>
+
 <p class="sub"><b>A/AN</b> — белгісіздік артиклі. Бұл бөлімде алдымен A мен AN неге екі форма болып көрінетінін, содан кейін олардың қай жағдайда қолданылатынын үйренеміз.</p>
 
 <div class="rule" id="aan-first">
@@ -448,7 +470,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <div class="q"><div class="tag">TEST 02</div><h4>I need ___ picture-hook to hang this picture.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Нақты қайсысы екені маңызды емес бір picture-hook керек → <b>a picture-hook</b>.</div></div>
 <h3>3. Алғаш рет айтылған адам немесе зат</h3>
-<div class="examples">I saw <b>a woman</b>.<br>There is <b>a car</b> outside.</div>
+<figure class="grammar-situation" aria-label="First mention → second mention"><div class="situation-art situation-first"><div class="situation-object"><span class="situation-emoji">🚗</span><b>a car</b></div><div class="situation-object"><span class="situation-emoji">🚘</span><b>the car</b></div></div><figcaption><strong>First mention → second mention</strong><span>Алғаш рет: I saw a car. Қайта айтқанда: The car was red.</span></figcaption></figure>\n<div class="examples">I saw <b>a woman</b>.<br>There is <b>a car</b> outside.</div>
 
 <div class="q"><div class="tag">TEST 03</div><h4>During our journey we came to ___ bridge.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Bridge алғаш рет айтылып тұр → <b>a bridge</b>. Кейін қайта айтылса <b>the bridge</b>.</div></div>
 <h3>4. One of many — топтың бір мүшесі</h3>
@@ -464,7 +486,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <div class="q"><div class="tag">TEST 06</div><h4>A whale is ___ mammal.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) –</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Whale белгілі бір класқа жатқызылып тұр → <b>a mammal</b>.</div></div>
 <h3>7. Description: article + adjective — сын есім + noun</h3>
-<div class="examples"><b>a nice person</b><br><b>a beautiful girl</b><br><b>an interesting book</b><br><b>an expensive car</b></div>
+<figure class="grammar-situation" aria-label="Adjective + noun"><div class="situation-art situation-adjective"><div class="situation-object"><span class="situation-emoji">🌺</span><b>a beautiful flower</b></div><div class="situation-object"><span class="situation-emoji">📕</span><b>an interesting book</b></div></div><figcaption><strong>Adjective + noun</strong><span>Артикль зат есімге дейінгі сын есімнің алғашқы дыбысына қарай таңдалады.</span></figcaption></figure>\n<div class="examples"><b>a nice person</b><br><b>a beautiful girl</b><br><b>an interesting book</b><br><b>an expensive car</b></div>
 <p>Сын есім зат есімнің алдында тұрса да, A/AN бүкіл noun phrase-пен бірге қолданылады.</p>
 <div class="trap"><b>Назар аудар:</b> A немесе AN таңдағанда артикльден кейін бірден тұрған сөздің <b>дыбысына</b> қараймыз: <b>a beautiful day</b>, бірақ <b>an amazing day</b>.</div>
 
@@ -580,7 +602,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 <div class="rule">
 <h3>16.3 Мағына өзгерсе, uncountable noun countable бола алады</h3>
 <p>Кейбір сөздер жалпы зат/ұғымды білдіргенде uncountable болады, ал <b>бір порция, бір зат, бір жағдай немесе бір тәжірибе</b> деген нақты мағынаға ауысқанда countable болып, A/AN ала алады.</p>
-<div class="examples"><div class="ex"><b>I like coffee.</b><span>Мен кофені ұнатамын. — жалпы сусын</span></div><div class="ex"><b>I'd like a coffee.</b><span>Маған бір кофе беріңіз. — бір порция/шыны</span></div><div class="ex"><b>Chicken is healthy.</b><span>Тауық еті пайдалы.</span></div><div class="ex"><b>There is a chicken in the garden.</b><span>Бақта бір тауық бар.</span></div><div class="ex"><b>I need some paper.</b><span>Маған қағаз керек.</span></div><div class="ex"><b>I read a paper about education.</b><span>Мен білім туралы бір мақала оқыдым.</span></div></div>
+<figure class="grammar-situation" aria-label="Coffee / A coffee"><div class="situation-art situation-coffee"><div class="situation-object"><span class="situation-emoji">🫘</span><b>coffee (general)</b></div><div class="situation-object"><span class="situation-emoji">☕</span><b>a coffee (one cup)</b></div></div><figcaption><strong>Coffee / A coffee</strong><span>Coffee — сусын жалпы мағынада; a coffee — бір порция.</span></figcaption></figure>\n<div class="examples"><div class="ex"><b>I like coffee.</b><span>Мен кофені ұнатамын. — жалпы сусын</span></div><div class="ex"><b>I'd like a coffee.</b><span>Маған бір кофе беріңіз. — бір порция/шыны</span></div><div class="ex"><b>Chicken is healthy.</b><span>Тауық еті пайдалы.</span></div><div class="ex"><b>There is a chicken in the garden.</b><span>Бақта бір тауық бар.</span></div><div class="ex"><b>I need some paper.</b><span>Маған қағаз керек.</span></div><div class="ex"><b>I read a paper about education.</b><span>Мен білім туралы бір мақала оқыдым.</span></div></div>
 <div class="q"><div class="tag">TEST 18</div><h4>At the café, I'd like ___ coffee, please.</h4><div class="opts"><div class="opt">A) a</div><div class="opt">B) an</div><div class="opt">C) the</div><div class="opt">D) no word can be used</div></div><button onclick="reveal(this)">Жауабы мен талдауы</button><div class="answer"><b>A) a.</b> Кафеде <b>a coffee</b> = бір порция/бір шыны кофе. Бұл жерде <i>coffee</i> countable мағынаға ауысқан.</div></div>
 </div>
 <div class="q"><div class="tag">TEST 19</div>
@@ -648,7 +670,8 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <section class="chapter" id="the">
 <h2>3. Definite Article — THE</h2>
-<p class="sub"><b>THE — белгілілік артиклі.</b> Ол сөйлеуші мен тыңдаушы <b>нақты қай адам, зат немесе топ туралы</b> айтылып тұрғанын анықтай алғанда қолданылады. A/AN сияқты THE заттың саналатынына ғана тәуелді емес: THE жекеше, көпше және саналмайтын зат есімдермен де келе алады.</p>
+
+<p class="sub"><b>THE — белгілілік артиклі.</b> Ол сөйлеуші мен тыңдаушы <b>нақты қай адам, зат немесе топ туралы</b> айтылып тұрғанын анықтай алғанда қолданылады. A/AN сияқты THE заттың саналатынына ғана тәуелді емес: THE жекеше, көпше және саналмайтын зат есімдермен де келе алады.</p>\n<figure class="grammar-situation" aria-label="The = нақты белгілі зат"><div class="situation-art situation-specific"><div class="situation-object"><span class="situation-emoji">🚪</span><b>the door</b></div><div class="situation-object"><span class="situation-emoji">☀️</span><b>the sun</b></div></div><figcaption><strong>The = нақты белгілі зат</strong><span>Бірнеше заттың ішінен нақты белгілі бір затты көрсетеміз.</span></figcaption></figure>
 
 
 <div class="rule">
@@ -739,7 +762,8 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <section class="chapter" id="zero">
 <h2>4. Zero Article — Ø</h2>
-<p class="sub"><b>Zero Article (Ø) — артикльдің болмауы.</b> Бұл кездейсоқ емес: белгілі жағдайларда зат есімнің алдында A, AN немесе THE қолданылмайды. Төменде әр жағдай жеке ереже ретінде берілген.</p>
+
+<p class="sub"><b>Zero Article (Ø) — артикльдің болмауы.</b> Бұл кездейсоқ емес: белгілі жағдайларда зат есімнің алдында A, AN немесе THE қолданылмайды. Төменде әр жағдай жеке ереже ретінде берілген.</p>\n<figure class="grammar-situation" aria-label="Zero article = жалпы ұғым"><div class="situation-art situation-general"><div class="situation-object"><span class="situation-emoji">📚</span><b>books</b></div><div class="situation-object"><span class="situation-emoji">💦</span><b>water</b></div></div><figcaption><strong>Zero article = жалпы ұғым</strong><span>Жалпы мағынада көпше заттар және саналмайтын зат есімдер артикльсіз келеді.</span></figcaption></figure>
 <div class="formula">Ø = noun алдында A / AN / THE жоқ</div>
 <div class="rule">
 <h3>1. Plural nouns — көпше зат есім жалпы мағынада</h3>
@@ -867,6 +891,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 </section>
 <section class="chapter" id="names">
 <h2>5. Proper Names & Personal Names — жалқы және адам аттары</h2>
+
 <p class="sub"><b>Proper name — жалқы есім:</b> нақты бір адам, жер, ұйым немесе атаудың жеке аты. <b>Personal name — адамның аты-жөні.</b> Негізгі үлгі: адамның кәдімгі аты-жөні алдында Ø, бірақ кейбір арнайы мағыналарда A/AN немесе THE пайда болады.</p>
 <div class="formula">John Brown → Ø &nbsp; | &nbsp; the Browns → отбасы &nbsp; | &nbsp; a Mr Brown → Mr Brown деген бір адам</div>
 <div class="rule"><h3>1. Personal names — кәдімгі адам аты-жөні</h3><p>First name, surname немесе first name + surname кәдімгі жеке адамды атағанда article қолданылмайды.</p><div class="examples"><div class="ex"><b>John is my friend.</b><span>Джон — менің досым.</span></div><div class="ex"><b>Emma Watson is an actress.</b><span>Эмма Уотсон — актриса.</span></div><div class="ex"><b>I spoke to Brown yesterday.</b><span>Мен кеше Браунмен сөйлестім.</span></div></div>
@@ -970,7 +995,8 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <section class="chapter" id="geo">
 <h2>6. Articles with Geographical Names — географиялық атаулар</h2>
-<p class="sub">Географиялық атауларда негізгі принцип — proper name болғандықтан көбіне Ø. Бірақ атаудың түріне қарай THE қажет болатын тұрақты топтар бар.</p>
+
+<p class="sub">Географиялық атауларда негізгі принцип — proper name болғандықтан көбіне Ø. Бірақ атаудың түріне қарай THE қажет болатын тұрақты топтар бар.</p>\n<figure class="grammar-situation" aria-label="Geographical names"><div class="situation-art situation-geo"><div class="situation-object"><span class="situation-emoji">🏙️</span><b>Kazakhstan / London</b></div><div class="situation-object"><span class="situation-emoji">🌊</span><b>the Thames</b></div></div><figcaption><strong>Geographical names</strong><span>Ел мен қала атаулары көбіне артикльсіз, ал өзен мен мұхит атаулары THE арқылы қолданылады.</span></figcaption></figure>
 <div class="formula">Көптеген жеке атаулар → Ø &nbsp; | &nbsp; rivers / seas / oceans / ranges / deserts / groups / political descriptive names → THE</div>
 <div class="rule"><h3>1. Countries, continents, cities — көбіне Ø</h3><p>Жай country, continent және city атауларының алдында article болмайды.</p><div class="examples"><div class="ex"><b>Kazakhstan</b><span>Қазақстан</span></div><div class="ex"><b>Italy</b><span>Италия</span></div><div class="ex"><b>Japan</b><span>Жапония</span></div><div class="ex"><b>Asia</b><span>Азия</span></div><div class="ex"><b>Europe</b><span>Еуропа</span></div><div class="ex"><b>London</b><span>Лондон</span></div><div class="ex"><b>Almaty</b><span>Алматы</span></div></div>
 <div class="note"><b>Назар аудар:</b> Ел атауында <b>United, Kingdom, Republic, States</b> сияқты сипаттаушы/саяси сөздер болса THE жиі қажет: the United Kingdom, the United States.</div><div class="q"><div class="tag">TEST 61</div><h4>She lives in ___ Italy.</h4>
@@ -1060,7 +1086,7 @@ main{width:min(1040px,calc(100% - 30px));margin-top:28px}
 
 <div id="studyTools" aria-label="Study tools">
   <button type="button" data-action="notes">Notes</button>
-  <button type="button" data-tool="pen">✎ Pen</button>
+  <button type="button" data-tool="pen">✎ Red Pen</button>
   <button type="button" data-tool="marker">▰ Marker</button>
   <button type="button" data-tool="eraser">⌫ Eraser</button>
   <button type="button" data-action="undo">↶ Undo</button>
@@ -1128,7 +1154,7 @@ svg.addEventListener("touchstart",e=>{
   }
 },{passive:false,capture:true});
 
-svg.addEventListener("pointerdown",e=>{if(!tool)return;const q=point(e);if(tool==="eraser"){drawing=true;eraseAt(q[0],q[1]);try{svg.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault();return}drawing=true;points=[q];path=document.createElementNS(NS,"path");path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");path.setAttribute("stroke-linejoin","round");path.setAttribute("vector-effect","non-scaling-stroke");if(tool==="marker"){path.setAttribute("stroke","#FFD43B");path.setAttribute("stroke-width","20");path.setAttribute("opacity",".38")}else{path.setAttribute("stroke","#153f73");path.setAttribute("stroke-width","3.5");path.setAttribute("opacity","1")}path.setAttribute("d",dFrom(points));svg.appendChild(path);try{svg.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault()},{passive:false});
+svg.addEventListener("pointerdown",e=>{if(!tool)return;const q=point(e);if(tool==="eraser"){drawing=true;eraseAt(q[0],q[1]);try{svg.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault();return}drawing=true;points=[q];path=document.createElementNS(NS,"path");path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");path.setAttribute("stroke-linejoin","round");path.setAttribute("vector-effect","non-scaling-stroke");if(tool==="marker"){path.setAttribute("stroke","#FFD43B");path.setAttribute("stroke-width","20");path.setAttribute("opacity",".38")}else{path.setAttribute("stroke","#e53935");path.setAttribute("stroke-width","3.5");path.setAttribute("opacity","1")}path.setAttribute("d",dFrom(points));svg.appendChild(path);try{svg.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault()},{passive:false});
 svg.addEventListener("pointermove",e=>{if(!drawing||!tool)return;const q=point(e);if(tool==="eraser"){eraseAt(q[0],q[1])}else if(path){points.push(q);path.setAttribute("d",dFrom(points))}e.preventDefault()},{passive:false});
 function end(e){if(!drawing)return;drawing=false;if(path)saveDrawing();path=null;points=[];try{svg.releasePointerCapture(e.pointerId)}catch(_){};e.preventDefault()}
 svg.addEventListener("pointerup",end,{passive:false});svg.addEventListener("pointercancel",end,{passive:false});
